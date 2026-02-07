@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Language } from '@shared/types';
+import type { Language } from '@shared/types';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';
 

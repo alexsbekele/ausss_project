@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { CheckCircle, XCircle, ArrowLeft } from 'lucide-react';
-import { Language, AdmissionApplicant } from '@shared/types';
+import type { Language, AdmissionApplicant } from '@shared/types';
 import { ApiService } from '@/services/apiService';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';

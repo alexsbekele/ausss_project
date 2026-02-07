@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ApiService } from '@/services/apiService';
-import { Alumnus, Teacher, GradeLevel, AdmissionApplicant, Announcement, Language } from '@shared/types';
+import type { Alumnus, Teacher, GradeLevel, AdmissionApplicant, Announcement, Language } from '@shared/types';
 import { Users, Target, ClipboardList, Search, UserPlus, Activity, BookOpen, GraduationCap, Trash2, Newspaper, Image as ImageIcon, Send, Megaphone, Calendar, Edit3, X } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';

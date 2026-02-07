@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { ApiService } from '@/services/apiService';
-import { Alumnus, Language } from '@shared/types';
+import type { Alumnus, Language } from '@shared/types';
 import { GraduationCap, CheckCircle, ArrowLeft } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';

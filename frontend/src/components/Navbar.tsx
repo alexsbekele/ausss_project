@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-import { PageView, User, UserRole, Language } from '@shared/types';
+import { PageView } from '@shared/types';
+import type { User, UserRole, Language } from '@shared/types';
 import { Menu, X, User as UserIcon, LogOut, GraduationCap, ChevronDown, LayoutDashboard, Languages, Globe } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';

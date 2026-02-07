@@ -1,4 +1,4 @@
-import { Alumnus, ChatMessage, Announcement, DirectNotification, SocialPost, SocialComment, Teacher, GradeLevel, AdmissionApplicant, User } from '@shared/types';
+import type { Alumnus, ChatMessage, Announcement, DirectNotification, SocialPost, SocialComment, Teacher, GradeLevel, AdmissionApplicant, User } from '@shared/types';
 
 const API_BASE = '/api';
 

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Announcement, Language, User } from '@shared/types';
+import type { Announcement, Language, User } from '@shared/types';
 import { ApiService } from '@/services/apiService';
 import { Bell, Calendar, Globe, Newspaper, Info, Trash2 } from 'lucide-react';
 import { translations } from '@/locales/translations';

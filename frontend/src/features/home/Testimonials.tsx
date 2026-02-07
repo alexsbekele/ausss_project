@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Quote, X, MessageSquareQuote, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Language } from '@shared/types';
+import type { Language } from '@shared/types';
 import { TESTIMONIALS_DATA, TEACHERS_DATA } from '@/utils/constants';
 import { translations } from '@/locales/translations';
 import Card from '@/components/ui/Card';

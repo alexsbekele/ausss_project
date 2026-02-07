@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { User, SocialPost, SocialComment, Language } from '@shared/types';
+import type { User, SocialPost, SocialComment, Language } from '@shared/types';
 import { ApiService } from '@/services/apiService';
 import { MessageSquare, Heart, User as UserIcon, Send, Image as ImageIcon, X, Trash2, Paperclip, Mic } from 'lucide-react';
 import { translations } from '@/locales/translations';

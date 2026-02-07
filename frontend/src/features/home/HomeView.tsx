@@ -1,7 +1,8 @@
 import React from 'react';
 import TopStudents from '@/features/home/TopStudents';
 import Testimonials from '@/features/home/Testimonials';
-import { PageView, User, Language, Announcement } from '@shared/types';
+import { PageView } from '@shared/types';
+import type { User, Language, Announcement } from '@shared/types';
 import { ArrowRight, Calendar, Trash2 } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import SectionHeader from '@/components/ui/SectionHeader';

@@ -6,7 +6,8 @@ import Announcements from '@/features/announcements/Announcements';
 import UserDashboard from '@/pages/UserDashboard';
 import LoginModal from '@/components/LoginModal';
 import HomeView from '@/features/home/HomeView';
-import { PageView, User, Language, Announcement } from '@shared/types';
+import { PageView } from '@shared/types';
+import type { User, Language, Announcement } from '@shared/types';
 import { ApiService } from '@/services/apiService';
 
 const App: React.FC = () => {

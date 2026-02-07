@@ -1,6 +1,7 @@
 import React from 'react';
 import { Send, Award, CheckCircle } from 'lucide-react';
-import { Language, PageView } from '@shared/types';
+import { PageView } from '@shared/types';
+import type { Language } from '@shared/types';
 import { translations } from '@/locales/translations';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';

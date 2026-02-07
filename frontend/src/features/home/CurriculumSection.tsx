@@ -1,6 +1,6 @@
 import React from 'react';
 import { Microscope, Globe, Languages } from 'lucide-react';
-import { Language } from '@shared/types';
+import type { Language } from '@shared/types';
 import { translations } from '@/locales/translations';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Card from '@/components/ui/Card';

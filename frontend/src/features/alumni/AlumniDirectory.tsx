@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Alumnus, User, Language } from '@shared/types';
+import type { Alumnus, User, Language } from '@shared/types';
 import { ApiService } from '@/services/apiService';
 import { Search, Briefcase, MapPin, UserPlus, ChevronDown, ChevronUp, Info } from 'lucide-react';
 import { translations } from '@/locales/translations';

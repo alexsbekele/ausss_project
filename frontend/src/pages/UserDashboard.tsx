@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { User } from '@shared/types';
+import type { User } from '@shared/types';
 import { 
   Mail, UserPlus, Users, 
   Rss, UserCircle, Target, ClipboardList, Activity, LogOut, ArrowLeft, Megaphone, Globe

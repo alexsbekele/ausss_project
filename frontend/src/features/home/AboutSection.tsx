@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users } from 'lucide-react';
-import { Language } from '@shared/types';
+import type { Language } from '@shared/types';
 import { ADMIN_MEMBERS } from '@/utils/constants';
 import { translations } from '@/locales/translations';
 import SectionHeader from '@/components/ui/SectionHeader';

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Alumnus, User, GradeLevel, Teacher, Language } from '@shared/types';
+import type { Alumnus, User, GradeLevel, Teacher, Language } from '@shared/types';
 import { ApiService } from '@/services/apiService';
 import { Camera, Mail, Lock, GraduationCap, Briefcase, Save, X, Edit3, User as UserIcon, ShieldCheck, Image as ImageIcon, Trash2, RefreshCw, Eye, EyeOff } from 'lucide-react';
 import { translations } from '@/locales/translations';

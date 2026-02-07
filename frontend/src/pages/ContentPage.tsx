@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { PageView, Language } from '@shared/types';
+import { PageView } from '@shared/types';
+import type { Language } from '@shared/types';
 import AboutSection from '@/features/home/AboutSection';
 import AdmissionSection from '@/features/admissions/AdmissionSection';
 import CurriculumSection from '@/features/home/CurriculumSection';

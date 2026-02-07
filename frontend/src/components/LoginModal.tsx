@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { UserRole, User, Language } from '@shared/types';
+import type { UserRole, User, Language } from '@shared/types';
 import { ApiService } from '@/services/apiService';
 import { X, Mail, Lock, User as UserIcon, ShieldCheck, Eye, EyeOff, ArrowLeft, BookOpen, Key, CheckCircle } from 'lucide-react';
 import { translations } from '@/locales/translations';
