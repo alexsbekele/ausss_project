@@ -94,7 +94,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
     );
   }
 
-  const inputClass = "w-full border-4 border-slate-100 rounded-[2rem] px-8 py-6 bg-slate-50 text-slate-900 font-black text-xl outline-none focus:border-yellow-400 focus:bg-white transition-all placeholder:text-slate-300";
+  const inputClass = "w-full border-4 border-red-600 rounded-[2rem] px-8 py-6 bg-slate-50 text-slate-900 font-black text-xl outline-none focus:border-yellow-400 focus:bg-white transition-all placeholder:text-slate-300";
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-20 animate-in fade-in duration-700">
@@ -112,7 +112,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
         {/* Personal Section */}
         <div className="space-y-8">
           <div className="flex items-center gap-4">
-            <div className="h-2 w-12 bg-yellow-400 rounded-full"></div>
+            <div className="bg-yellow-400 rounded-full"></div>
             <h2 className="text-2xl font-black text-slate-900 uppercase tracking-widest">{t.personal[lang]}</h2>
           </div>
           
@@ -123,7 +123,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
                 type="text" 
                 required 
                 className={inputClass}
-                placeholder="Full Name"
+                //placeholder="Full Name"
                 value={formData.fullName}
                 onChange={e => setFormData({...formData, fullName: e.target.value})}
               />
@@ -134,7 +134,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
                 type="number" 
                 required 
                 className={inputClass}
-                placeholder="Age"
+                //placeholder="Age"
                 value={formData.age}
                 onChange={e => setFormData({...formData, age: e.target.value})}
               />
@@ -145,7 +145,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
         {/* Location Section */}
         <div className="space-y-8">
           <div className="flex items-center gap-4">
-            <div className="h-2 w-12 bg-yellow-400 rounded-full"></div>
+            <div className="bg-yellow-400 rounded-full"></div>
             <h2 className="text-2xl font-black text-slate-900 uppercase tracking-widest">{t.location[lang]}</h2>
           </div>
           
@@ -156,7 +156,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
                 type="text" 
                 required 
                 className={inputClass}
-                placeholder="Wereda"
+                //placeholder="Wereda"
                 value={formData.wereda}
                 onChange={e => setFormData({...formData, wereda: e.target.value})}
               />
@@ -167,7 +167,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
                 type="text" 
                 required 
                 className={inputClass}
-                placeholder="Kebele"
+                //placeholder="Kebele"
                 value={formData.kebele}
                 onChange={e => setFormData({...formData, kebele: e.target.value})}
               />
@@ -178,7 +178,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
                 type="tel" 
                 required 
                 className={inputClass}
-                placeholder="+251 ..."
+                //placeholder="+251 ..."
                 value={formData.phoneNumber}
                 onChange={e => setFormData({...formData, phoneNumber: e.target.value})}
               />
@@ -189,7 +189,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
         {/* Academic Section */}
         <div className="space-y-8">
           <div className="flex items-center gap-4">
-            <div className="h-2 w-12 bg-yellow-400 rounded-full"></div>
+            <div className="bg-yellow-400 rounded-full"></div>
             <h2 className="text-2xl font-black text-slate-900 uppercase tracking-widest">{t.academic[lang]}</h2>
           </div>
           
@@ -200,7 +200,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
                 type="text" 
                 required 
                 className={inputClass}
-                placeholder="Former School"
+                //placeholder="Former School"
                 value={formData.schoolName}
                 onChange={e => setFormData({...formData, schoolName: e.target.value})}
               />
@@ -213,7 +213,7 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
                   step="0.01" 
                   required 
                   className={`${inputClass} pr-16`}
-                  placeholder="0.00"
+                  //placeholder="0.00"
                   value={formData.grade8Score}
                   onChange={e => setFormData({...formData, grade8Score: e.target.value})}
                 />
@@ -228,7 +228,8 @@ const AdmissionRegistration: React.FC<AdmissionRegistrationProps> = ({ onCancel,
           fullWidth 
           size="lg"
           variant="primary"
-          className="py-10 text-3xl"
+          className="py-10 text-3xl bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-500"
+          //className="bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-500"
         >
           {t.submit[lang]}
         </Button>

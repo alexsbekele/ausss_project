@@ -32,16 +32,16 @@ export const translations = {
   },
   admission: {
     title: { en: 'Admissions', am: 'ምዝገባ እና ቅበላ', om: 'Galmeef' },
-    subtitle: { en: "Nurturing Ethiopia's Future High Achievers", am: "የኢትዮጵያን የወደፊት ስኬታማ ሰዎች ማፍራት", om: "Milkaa'ota Itiyoophiyaa egeree ijaaruu" },
-    applyBtn: { en: 'Apply Online', am: 'በኢንተርኔት ያመልክቱ', om: "Onlaayiniin Galmaa'i" },
+    subtitle: { en: "We are Nurturing Future High Achievers and Good Citizens", am: "የኢትዮጵያን የወደፊት ስኬታማ ሰዎች ማፍራት", om: "Milkaa'ota Itiyoophiyaa egeree ijaaruu" },
+    applyBtn: { en: 'Apply Online', am: 'በኦንላይን ለመመስገብ', om: "Onlaayiniin Galmaa'uuf" },
     criteriaTitle: { en: 'Criteria for Admission', am: 'የመግቢያ መስፈርቶች', om: 'Ulaagaa Seensaa' },
     criteriaDesc: {
-      en: 'Selection is based on the 8th grade regional exam results and a dedicated entrance examination.',
+      en: 'Selection is based on the 8th grade regional exam results and an additional entrance examination.',
       am: 'ምርጫው በ8ኛ ክፍል ክልላዊ ፈተና ውጤት እና በልዩ የመግቢያ ፈተና ላይ የተመሰረተ ነው።',
       om: "Filannoon bu'uura qabxii kutaa 8ffaa fi qormaata seensaa mana barumsichaa irratti hundaa'a."
     },
     thresholdLabel: { en: 'Current Threshold', am: 'የመግቢያ ዝቅተኛ ውጤት', om: 'Qabxii Seensaa' },
-    stepsTitle: { en: 'Admission Steps', am: 'የምዝገባ ቅደም ተከተሎች', om: 'Tarkaanfiiwwan Galmeessaa' },
+    stepsTitle: { en: 'Admission Steps:', am: 'የምዝገባ ቅደም ተከተሎች', om: 'Duraa duuba Galmee' },
     step1: { en: 'Score Verification', am: 'ውጤት ማረጋገጥ', om: 'Qabxii Mirkaneessuu' },
     step2: { en: 'Entrance Exam', am: 'የመግቢያ ፈተና', om: 'Qormaata Seensaa' },
     step3: { en: 'Final Enrollment', am: 'የመጨረሻ ምዝገባ', om: 'Galmeessa Xumuraa' },
@@ -69,12 +69,10 @@ export const translations = {
     }
   },
   contact: {
-    title: { en: 'Questions? Contact Us.', am: 'ጥያቄ አለዎት? ያግኙን።', om: 'Gaaffii Qabduu? Nu Quunnamaa.' },
-    aiTitle: { en: 'AI School Assistant', am: 'የአይ ኤ (AI) ረዳት', om: 'Gargaaraa AI' },
-    aiPlaceholder: { en: 'Ask a question...', am: 'ጥያቄ ይጠይቁ...', om: 'Gaaffii Gaafadhu...' },
-    askBtn: { en: 'Ask', am: 'ጠይቅ', om: 'Gaafadhu' },
+    title: { en: 'Contact Us.', am: 'ጥያቄ አለዎት? ያግኙን።', om: 'Nu Quunnamuuf.' },
     locationLabel: { en: 'Location', am: 'አድራሻ', om: 'Bakka' },
-    phoneLabel: { en: 'Phone', am: 'ስልክ', om: 'Bilbila' }
+    phoneLabel: { en: 'Phone', am: 'ስልክ', om: 'Bilbila' },
+    emailLabel: { en: 'Email', am: 'ኢሜይል', om: 'Imayilii' }
   },
   navbar: {
     home: { en: 'Home', am: 'መነሻ', om: 'Fuula Jalqabaa' },
@@ -150,7 +148,7 @@ export const translations = {
     successMsg: { 
       en: 'Congratulations! You are eligible for the exam.', 
       am: 'እንኳን ደስ አለዎት! ለፈተናው ብቁ ነዎት።', 
-      om: 'Baga gammanne! Qormaataaf gahumsa qabda.' 
+      om: 'Baga gammanne! Qormaataaf Darbitteetta.' 
     },
     failMsg: {
       en: 'Sorry, your score does not meet the current requirement. Keep working hard!',

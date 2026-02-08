@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import type { Language } from '@shared/types';
 import { translations } from '@/locales/translations';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -22,17 +22,30 @@ const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
               <MapPin className="w-8 h-8 text-yellow-600"/>
             </div>
             <div>
-              <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1">{t.locationLabel[lang]}</p>
+              <p className="text-sm font-black text-yellow-600 uppercase tracking-widest mb-1">{t.locationLabel[lang]}</p>
               <span className="text-xl font-bold text-slate-800">Ambo University, Hachalu Hundessa Campus, Ethiopia</span>
             </div>
           </div>
-          <div className="flex items-center text-gray-700 group">
-            <div className="p-4 bg-white rounded-2xl shadow-sm mr-6 group-hover:scale-110 transition-transform">
-              <Phone className="w-8 h-8 text-yellow-600"/>
+
+          <div className="space-y-6">
+            <div className="flex items-center text-gray-700 group">
+              <div className="p-4 bg-white rounded-2xl shadow-sm mr-6 group-hover:scale-110 transition-transform">
+                <Phone className="w-8 h-8 text-yellow-600"/>
+              </div>
+              <div>
+                <p className="text-sm font-black text-yellow-600 uppercase tracking-widest mb-1">{t.phoneLabel[lang]}</p>
+                <span className="text-xl font-bold text-slate-800">+251 ....</span>
+              </div>
             </div>
-            <div>
-              <p className="text-sm font-black text-slate-400 uppercase tracking-widest mb-1">{t.phoneLabel[lang]}</p>
-              <span className="text-xl font-bold text-slate-800">+251 11 236 2006</span>
+
+            <div className="flex items-center text-gray-700 group">
+              <div className="p-4 bg-white rounded-2xl shadow-sm mr-6 group-hover:scale-110 transition-transform">
+                <Mail className="w-8 h-8 text-yellow-600"/>
+              </div>
+              <div>
+                <p className="text-sm font-black text-yellow-600 uppercase tracking-widest mb-1">{t.emailLabel[lang]}</p>
+                <span className="text-xl font-bold text-slate-800">bmerga52@gmail.com</span>
+              </div>
             </div>
           </div>
         </div>

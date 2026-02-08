@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, Award, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
 import { PageView } from '@shared/types';
 import type { Language } from '@shared/types';
 import { translations } from '@/locales/translations';
@@ -23,6 +23,7 @@ const AdmissionSection: React.FC<AdmissionSectionProps> = ({ lang, onNavigate })
             onClick={() => onNavigate(PageView.ADMISSION_REGISTER)}
             icon={Send}
             iconPosition="right"
+            className="bg-yellow-600 text-white hover:bg-yellow-700 focus:ring-yellow-500"
           >
             {t.applyBtn[lang]}
           </Button>
@@ -30,9 +31,8 @@ const AdmissionSection: React.FC<AdmissionSectionProps> = ({ lang, onNavigate })
       </SectionHeader>
       
       <div className="space-y-12">
-        <div className="bg-yellow-50 border-l-8 border-yellow-500 p-10 rounded-r-[2.5rem] shadow-sm">
+        <div className="bg-yellow-100 /*border-l-8 border-yellow-500*/ p-10 rounded-[2.5rem] shadow-sm relative">
           <div className="flex items-start">
-            <Award className="h-12 w-12 text-yellow-600 mr-6 flex-shrink-0 mt-1" />
             <div>
               <p className="font-black text-3xl text-yellow-800 mb-4">
                 {t.criteriaTitle[lang]}
@@ -45,7 +45,7 @@ const AdmissionSection: React.FC<AdmissionSectionProps> = ({ lang, onNavigate })
         </div>
 
         <div className="grid md:grid-cols-2 gap-10">
-          <Card className="bg-white">
+          <Card className="bg-red-100">
             <h3 className="text-2xl font-black text-slate-900 mb-6 flex items-center">
               <CheckCircle className="text-green-500 mr-3 h-8 w-8"/> {t.thresholdLabel[lang]}
             </h3>
@@ -57,7 +57,7 @@ const AdmissionSection: React.FC<AdmissionSectionProps> = ({ lang, onNavigate })
             </ul>
           </Card>
           
-          <Card className="bg-slate-50">
+          <Card className="bg-red-100">
             <h3 className="text-2xl font-black text-slate-900 mb-6">{t.stepsTitle[lang]}</h3>
             <ol className="space-y-8">
               {[1, 2, 3].map(step => (
