@@ -13,7 +13,7 @@ export const TESTIMONIALS_DATA = [
     role: "ALUMNI",
     initials: "HB",
     color: "bg-pink-100 text-pink-700",
-    photoUrl: "/images/Hundaol_Begna.jpg",
+    photoUrl: "/images/Hundaol_Begna.png",
     text: {
       en: "He will say something here...",
       am: "Izi be Amharigna yitsifal",
@@ -149,7 +149,7 @@ export const ADMIN_MEMBERS = [
     id: 2,
     name: "Adisu Dagne",
     role: "Academic Vice Director",
-    image: "/images/admin_adisu.jpg",
+    image: "/images/Adisu_Dagne.png",
     color: "border-slate-300 hover:border-yellow-400",
     roleColor: "text-slate-500"
   },

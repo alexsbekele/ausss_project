@@ -201,7 +201,7 @@ export const translations = {
     title: { en: 'Student Voices', am: 'የተማሪዎች ድምጽ', om: 'Sagalee Barattootaa' },
     teachersTitle: { en: 'Our Teachers', am: 'የመምህራን ድምጽ', om: 'Barsiisotaa Keenya' },
     readMore: { en: 'Read More', am: 'ተጨማሪ ያንብቡ', om: 'Dabali dubbisi' },
-    institution: { en: 'Ambo University Special Secondary School', am: 'የአምቦ ዩኒቨርሲቲ ልዩ የሁለተኛ ደረጃ ትምህርት ቤት', om: 'Mana Barumsaa Addaa Sad. 2ffaa Yuunivarsiitii Amboo' }
+    //institution: { en: 'Ambo University Special Secondary School', am: 'የአምቦ ዩኒቨርሲቲ ልዩ የሁለተኛ ደረጃ ትምህርት ቤት', om: 'Mana Barumsaa Addaa Sad. 2ffaa Yuunivarsiitii Amboo' }
   },
   alumniDirectory: {
     title: { en: 'Alumni Directory', am: 'የቀድሞ ተማሪዎች ዝርዝር', om: 'Galmee Alumni' },

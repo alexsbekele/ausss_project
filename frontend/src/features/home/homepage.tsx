@@ -17,7 +17,7 @@ interface TopStudentsProps {
   lang: Language;
 }
 
-const TopStudents: React.FC<TopStudentsProps> = ({ lang }) => {
+const Homepage: React.FC<TopStudentsProps> = ({ lang }) => {
   const t = translations.home;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -78,7 +78,7 @@ const TopStudents: React.FC<TopStudentsProps> = ({ lang }) => {
               {t.motto[lang]}
             </p>
             <div className="mt-12 flex gap-4 justify-center">
-                <div className="h-2 w-48 bg-yellow-500 rounded-full shadow-[0_0_20px_rgba(234,179,8,0.6)]"></div>
+                <div className="bg-yellow-500 rounded-full shadow-[0_0_20px_rgba(234,179,8,0.6)]"></div>
             </div>
         </div>
       </div>
@@ -115,4 +115,4 @@ const TopStudents: React.FC<TopStudentsProps> = ({ lang }) => {
   );
 };
 
-export default TopStudents;
+export default Homepage;

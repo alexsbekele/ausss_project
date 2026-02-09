@@ -1,6 +1,9 @@
 import React from 'react';
-import TopStudents from '@/features/home/TopStudents';
+import HomePage from '@/features/home/homepage';
+import AusssInSport from '@/components/AusssInSport';
+import AusssInCreativity from '@/components/AusssInCreativity';
 import Testimonials from '@/features/home/Testimonials';
+import TeachersSection from '@/features/home/TeachersSection';
 import { PageView } from '@shared/types';
 import type { User, Language, Announcement } from '@shared/types';
 import { ArrowRight, Calendar, Trash2 } from 'lucide-react';
@@ -31,9 +34,12 @@ const HomeView: React.FC<HomeViewProps> = ({
 
   return (
     <>
-      <TopStudents lang={lang} />
-
+      <HomePage lang={lang} />
+      <AusssInSport lang={lang} />
+      <AusssInCreativity lang={lang} />
+      
       <Testimonials externalLang={lang} />
+      <TeachersSection externalLang={lang} />
 
       {latestAnnouncements.length > 0 && (
         <section className="py-24 bg-white overflow-hidden">
@@ -87,7 +93,7 @@ const HomeView: React.FC<HomeViewProps> = ({
                         />
                       )}
                       <div className="flex items-center gap-3 mb-6 text-xs font-black text-slate-400 uppercase tracking-widest">
-                        <Calendar className="w-4 h-4 text-yellow-500" /> {new Date(ann.datePosted).toLocaleDateString()}
+                        <Calendar className="text-yellow-500" /> {new Date(ann.datePosted).toLocaleDateString()}
                       </div>
                       <h3 className="text-2xl font-black text-slate-900 mb-4 line-clamp-2 leading-tight group-hover:text-yellow-600 transition-colors">{ann.title}</h3>
                       <p className="text-slate-500 font-bold mb-8 line-clamp-4 leading-relaxed flex-grow">{ann.content}</p>

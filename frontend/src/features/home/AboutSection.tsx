@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users } from 'lucide-react';
+//import { Users } from 'lucide-react';
 import type { Language } from '@shared/types';
 import { ADMIN_MEMBERS } from '@/utils/constants';
 import { translations } from '@/locales/translations';
@@ -29,7 +29,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ lang }) => {
             <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter drop-shadow-2xl animate-in fade-in slide-in-from-bottom-10 duration-1000">
               {t.title[lang]}
             </h2>
-            <div className="h-2 w-24 bg-yellow-400 mx-auto mt-6 rounded-full animate-in zoom-in duration-1000 delay-300"></div>
+            <div className="bg-yellow-400 mx-auto mt-6 rounded-full animate-in zoom-in duration-1000 delay-300"></div>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ lang }) => {
           <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
           <div className="text-center mb-16">
             <h3 className="text-5xl font-black text-slate-900 inline-flex items-center gap-4">
-              <Users className="text-yellow-500 w-12 h-12" /> {t.adminTitle[lang]}
+              <div className="text-yellow-500 w-12 h-12" /> {t.adminTitle[lang]}
             </h3>
           </div>
           

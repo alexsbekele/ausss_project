@@ -26,7 +26,7 @@ const CurriculumSection: React.FC<CurriculumSectionProps> = ({ lang }) => {
       id: 'language',
       title: t.languageTitle[lang],
       desc: t.academicLanguageDesc[lang],
-      image: '/images/english_class.png',
+      image: '/images/dessalegn_getachew.png',
       icon: <Globe className="w-8 h-8 text-white" />,
       iconBg: 'bg-blue-600',
       reverse: true
