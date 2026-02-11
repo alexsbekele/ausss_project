@@ -4,31 +4,46 @@ import { TeacherModel, AlumnusModel } from '../models/models';
 export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
+    console.debug('[auth] login attempt for', email);
     
-    // Check teachers
-    const teacher = await TeacherModel.findOne({ where: { email } });
-    if (teacher && teacher.password === password) {
-      const user = teacher.toJSON();
-      return res.json({ ...user, uid: user.id, role: 'teacher' });
-    }
-
-    // Check alumni
-    const alumnus = await AlumnusModel.findOne({ where: { email } });
-    if (alumnus && alumnus.password === password) {
-      const user = alumnus.toJSON();
-      return res.json({ ...user, uid: user.userId, role: 'alumni' });
-    }
-
     // Hardcoded Admin Login for demonstration/initial setup
-    // In a real production app, this should also be in the DB
     const ADMIN_EMAIL = 'bmerga52@gmail.com';
     const ADMIN_NAME = 'Bekele Merga';
-    if (email === ADMIN_EMAIL && password === 'admin123') {
+    const normalizedEmail = email.toLowerCase().trim();
+
+    if (normalizedEmail === ADMIN_EMAIL.toLowerCase() && password === 'admin123') {
+      console.log('[auth] Admin login success:', ADMIN_EMAIL);
       return res.json({ 
         uid: 'admin-0',
         name: ADMIN_NAME,
-        email: ADMIN_EMAIL,
-        role: 'admin'
+        role: 'admin',
+        email: ADMIN_EMAIL
+      });
+    }
+
+    // Check teachers
+    const teacher = await TeacherModel.findOne({ where: { email: normalizedEmail } });
+    if (teacher && teacher.password === password) {
+      console.log('[auth] Teacher login success:', normalizedEmail);
+      const user = teacher.get({ plain: true });
+      return res.json({ 
+        uid: user.id,
+        name: user.name,
+        role: 'teacher',
+        email: user.email
+      });
+    }
+
+    // Check alumni
+    const alumnus = await AlumnusModel.findOne({ where: { email: normalizedEmail } });
+    if (alumnus && alumnus.password === password) {
+      console.log('[auth] Alumni login success:', normalizedEmail);
+      const user = alumnus.get({ plain: true });
+      return res.json({ 
+        uid: user.userId,
+        name: user.name,
+        role: 'alumni',
+        email: user.email
       });
     }
 

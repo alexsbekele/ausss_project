@@ -13,11 +13,13 @@ const Card: React.FC<CardProps> = ({
   hoverEffect = true,
   onClick
 }) => {
+  const hasBg = className.includes('bg-');
+  
   return (
     <div 
       onClick={onClick}
       className={`
-        bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm
+        ${hasBg ? '' : 'bg-white'} rounded-[2.5rem] p-8 border border-slate-100 shadow-sm
         ${hoverEffect ? 'hover:shadow-2xl hover:-translate-y-2 transition-all duration-300' : ''}
         ${onClick ? 'cursor-pointer' : ''}
         ${className}

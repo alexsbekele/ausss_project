@@ -6,6 +6,13 @@ export const HERO_IMAGES = [
   "/images/class_of_2024.jpg"
 ];
 
+export const AUSSS_SPORTS_IMAGES = [
+  "/images/sport1.jpg",
+  "/images/sport2.jpg",
+  "/images/sport3.jpg",
+  "/images/sport4.jpg"
+];
+
 export const TESTIMONIALS_DATA = [
   {
     id: 1,
@@ -88,9 +95,10 @@ export const TESTIMONIALS_DATA = [
 export const TEACHERS_DATA = [
   {
     id: 1,
-    name: "Mr. Abebe",
-    role: "Physics Department",
+    name: "Mr. Megersa ",
+    role: "English Teacher",
     initials: "AB",
+    photoUrl: "/images/MrMegersa.png",
     color: "bg-blue-100 text-blue-700",
     text: {
       en: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS",
@@ -124,7 +132,7 @@ export const TEACHERS_DATA = [
   },
   {
     id: 4,
-    name: "Ato Tekele",
+    name: "Mr. Tekele",
     role: "Chemistry",
     initials: "KM",
     color: "bg-orange-100 text-orange-700",

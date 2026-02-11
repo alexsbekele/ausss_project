@@ -3,7 +3,7 @@ import HomePage from '@/features/home/homepage';
 import AusssInSport from '@/components/AusssInSport';
 import AusssInCreativity from '@/components/AusssInCreativity';
 import Testimonials from '@/features/home/Testimonials';
-import TeachersSection from '@/features/home/TeachersSection';
+import Teachers from '@/features/home/TeachersSection';
 import { PageView } from '@shared/types';
 import type { User, Language, Announcement } from '@shared/types';
 import { ArrowRight, Calendar, Trash2 } from 'lucide-react';
@@ -39,7 +39,7 @@ const HomeView: React.FC<HomeViewProps> = ({
       <AusssInCreativity lang={lang} />
       
       <Testimonials externalLang={lang} />
-      <TeachersSection externalLang={lang} />
+      <Teachers externalLang={lang} />
 
       {latestAnnouncements.length > 0 && (
         <section className="py-24 bg-white overflow-hidden">

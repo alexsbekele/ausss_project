@@ -58,20 +58,38 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess, lang }
     setIsLoading(true);
 
     try {
-      const user = await ApiService.login(email.trim(), password.trim());
+      const trimmedEmail = email.trim();
+      const trimmedPassword = password.trim();
+      
+      const user = await ApiService.login(trimmedEmail, trimmedPassword);
+      
       if (user) {
-        // Relax role check to allow admin login through any door if needed, 
-        // or just ensure the role matches.
-        if (user.role === 'admin' || user.role === role) {
+        // As a senior dev, we prioritize admin access regardless of selection
+        if (user.role === 'admin') {
+          onLoginSuccess(user);
+          return;
+        }
+
+        // Map the UI role selection to the shared UserRole type
+        const uiRoleToUserRole: Record<string, UserRole> = {
+          'alumni': 'alumni',
+          'teacher': 'teacher',
+          'admin': 'admin'
+        };
+
+        const expectedRole = uiRoleToUserRole[role];
+
+        if (user.role === expectedRole) {
           onLoginSuccess(user);
         } else {
-          setError(`User found but role is ${user.role}, not ${role}`);
+          setError(`${t.loginFailed[lang]} (Expected ${expectedRole}, but found ${user.role})`);
         }
       } else {
-        setError(t.teacherFailed[lang]); // Generic error
+        setError(t.loginFailed[lang]);
       }
     } catch (e) {
-      setError('Connection failed');
+      console.error('Login error:', e);
+      setError(`${t.loginFailed[lang]} (Server Error)`);
     } finally {
       setIsLoading(false);
     }
