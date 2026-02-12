@@ -22,7 +22,7 @@ export const translations = {
   },
   about: {
     title: { en: 'About Us', am: 'ስለ እኛ', om: "Waa'ee Keenya" },
-    objTitle: { en: 'Objectives of the School', am: 'የትምህርት ቤቱ ዓላማዎች', om: 'Kaayyoo Mana Barumsaa' },
+    objTitle: { en: 'Objectives of the School', am: 'የትምህርት ቤቱ ዓላማዎች', om: 'Kaayyoo Mana Barumsichaa' },
     objDesc1: { 
       en: 'Ambo University Special Secondary School is located in Oromia, a regional state. Basically, the pillar motive of the school is to ensure the quality of education, generate qualified students who are competent at the national and international level.',
       am: 'የአምቦ ዩኒቨርሲቲ ልዩ የሁለተኛ ደረጃ ትምህርት ቤት በኦሮሚያ ክልላዊ መንግስት ውስጥ ይገኛል። መሰረታዊ ዓላማው የትምህርት ጥራትን ማረጋገጥ እና በሃገር አቀፍና በአለም አቀፍ ደረጃ ብቁ የሆኑ ተማሪዎችን ማፍራት ነው።',
@@ -31,7 +31,7 @@ export const translations = {
     adminTitle: { en: 'School Administration', am: 'የትምህርት ቤቱ አመራር', om: 'Hooggansa Mana Barumsaa' }
   },
   admission: {
-    title: { en: 'Admissions', am: 'ምዝገባ እና ቅበላ', om: 'Galmeef' },
+    title: { en: 'Admissions', am: 'ምዝገባ እና ቅበላ', om: 'Galmeef' },   
     subtitle: { en: "We are Nurturing Future High Achievers and Good Citizens", am: "የኢትዮጵያን የወደፊት ስኬታማ ሰዎች ማፍራት", om: "Milkaa'ota Itiyoophiyaa egeree ijaaruu" },
     applyBtn: { en: 'Apply Online', am: 'በኦንላይን ለመመስገብ', om: "Onlaayiniin Galmaa'uuf" },
     criteriaTitle: { en: 'Criteria for Admission', am: 'የመግቢያ መስፈርቶች', om: 'Ulaagaa Seensaa' },
@@ -201,7 +201,7 @@ export const translations = {
     title: { en: 'Student Voices', am: 'የተማሪዎች ድምጽ', om: 'Sagalee Barattootaa' },
     teachersTitle: { en: 'Our Teachers', am: 'የመምህራን ድምጽ', om: 'Barsiisotaa Keenya' },
     readMore: { en: 'Read More', am: 'ተጨማሪ ያንብቡ', om: 'Dabali dubbisi' },
-    //institution: { en: 'Ambo University Special Secondary School', am: 'የአምቦ ዩኒቨርሲቲ ልዩ የሁለተኛ ደረጃ ትምህርት ቤት', om: 'Mana Barumsaa Addaa Sad. 2ffaa Yuunivarsiitii Amboo' }
+    institution: { en: 'Ambo University Special Secondary School', am: 'የአምቦ ዩኒቨርሲቲ ልዩ የሁለተኛ ደረጃ ትምህርት ቤት', om: 'Mana Barumsaa Addaa Sad. 2ffaa Yuunivarsiitii Amboo' }
   },
   alumniDirectory: {
     title: { en: 'Alumni Directory', am: 'የቀድሞ ተማሪዎች ዝርዝር', om: 'Galmee Alumni' },

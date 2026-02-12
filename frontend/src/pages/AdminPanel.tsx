@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ApiService } from '@/services/apiService';
 import type { Alumnus, Teacher, GradeLevel, AdmissionApplicant, Announcement, Language } from '@shared/types';
-import { Users, Target, ClipboardList, Search, UserPlus, Activity, BookOpen, GraduationCap, Trash2, Newspaper, Image as ImageIcon, Send, Megaphone, Calendar, Edit3, X } from 'lucide-react';
+import { Users, ChartBar, ClipboardList, Search, UserPlus, Activity, BookOpen, GraduationCap, Trash2, Newspaper, Image as ImageIcon, Send, Megaphone, Calendar, Edit3, X } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
@@ -151,7 +151,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
 
     const confirmMessage = type === 'TEACHER' 
       ? 'Are you sure you want to remove this Teacher? Their account will be permanently deleted.' 
-      : 'Are you sure you want to remove this Student/Alumnus? This action cannot be undone.';
+      : 'Are you sure you want to remove this Student/Alumnus?';
 
     if (!window.confirm(confirmMessage)) return;
 
@@ -260,24 +260,24 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
 
             <form onSubmit={handlePostAnnouncement} className="space-y-8">
                 <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-2">{t.announcements.headline[lang]}</label>
+                    <label className="text-xs font-black text-black uppercase tracking-widest ml-2">{t.announcements.headline[lang]}</label>
                     <input 
                         type="text" 
                         value={annTitle} 
                         onChange={e => setAnnTitle(e.target.value)}
                         className="w-full p-8 bg-slate-50 border-4 border-slate-100 rounded-[2.5rem] font-black text-2xl text-slate-900 placeholder:text-slate-300 focus:border-yellow-400 focus:bg-white transition-all outline-none" 
-                        placeholder="Ex: Entrance Exam Date Scheduled" 
+                        //placeholder="Ex: Entrance Exam Date Scheduled" 
                         required 
                     />
                 </div>
 
                 <div className="space-y-3">
-                    <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-2">{t.announcements.content[lang]}</label>
+                    <label className="text-xs font-black text-black uppercase tracking-widest ml-2">{t.announcements.content[lang]}</label>
                     <textarea 
                         value={annContent} 
                         onChange={e => setAnnContent(e.target.value)}
                         className="w-full p-8 bg-slate-50 border-4 border-slate-100 rounded-[2.5rem] font-bold text-xl text-slate-900 placeholder:text-slate-300 focus:border-yellow-400 focus:bg-white transition-all outline-none h-64 resize-none leading-relaxed" 
-                        placeholder="Write details about the announcement here..." 
+                        //placeholder="Write details about the announcement here..." 
                         required 
                     />
                 </div>
@@ -443,7 +443,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
         <Card className="max-w-2xl mx-auto p-16 animate-in slide-in-from-top-12 duration-700">
           <div className="flex items-center gap-6 mb-12">
             <div className="p-5 bg-yellow-50 rounded-3xl">
-              <Target className="text-yellow-600 w-12 h-12" />
+              <ChartBar className="text-yellow-600 w-12 h-12" />
             </div>
             <h3 className="text-4xl font-black text-slate-900 tracking-tight">{t.admissionScore.title[lang]}</h3>
           </div>
@@ -525,7 +525,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
             <div className="grid md:grid-cols-2 gap-10">
               <div className="space-y-4">
                 <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-2">{t.registration.name[lang]}</label>
-                <input name="name" type="text" required className="w-full p-6 bg-slate-50 border-4 border-slate-100 rounded-3xl font-bold text-xl outline-none focus:border-yellow-400 focus:bg-white transition-all" placeholder="John Doe" />
+                <input name="name" type="text" required className="w-full p-6 bg-slate-50 border-4 border-slate-100 rounded-3xl font-bold text-xl outline-none focus:border-yellow-400 focus:bg-white transition-all" />
               </div>
               <div className="space-y-4">
                 <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-2">{t.registration.email[lang]}</label>

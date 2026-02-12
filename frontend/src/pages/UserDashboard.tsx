@@ -23,7 +23,7 @@ const getTabs = (t: any, lang: 'en' | 'am' | 'om', currentUser: User) => {
     { id: 'profile', label: t.profile[lang], icon: UserCircle },
   ];
 
-  if (currentUser.role === 'admin' || currentUser.role === 'teacher') {
+  if (currentUser.role === 'admin' /*|| currentUser.role === 'teacher'*/) {
     tabs.splice(1, 0, 
       { id: 'announcements_admin', label: t.announcements[lang], icon: Megaphone },
       { id: 'registration', label: t.registration[lang], icon: UserPlus },
@@ -98,7 +98,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({ currentUser, onLogout, la
       case 'applicants':
         return <AdminPanel forceTab={activeTab as any} onViewProfile={handleViewProfile} isAdmin={isAdmin} lang={lang} />;
       default:
-        return <div className="p-20 text-center font-bold text-slate-300">Section Under Construction</div>;
+        return <div className="p-20 text-center font-bold text-slate-300">Welcome, fam! </div>;
     }
   };
 

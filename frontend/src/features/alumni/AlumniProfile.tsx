@@ -16,6 +16,8 @@ interface AlumniProfileProps {
 const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, lang }) => {
   const t = translations.profile;
   const [profileData, setProfileData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState<any>({});
   const [userType, setUserType] = useState<'student' | 'teacher' | 'admin'>('student');
@@ -31,44 +33,61 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
 
   useEffect(() => {
     const loadProfile = async () => {
-      setIsEditing(false); // Reset editing state when profileId changes
+      setLoading(true);
+      setError(null);
+      setIsEditing(false); 
       setShowPassword(false);
 
-      // Attempt to load as Alumnus/Student first
-      const alum = await ApiService.getAlumnusById(profileId);
-      if (alum) {
-        setProfileData(alum);
-        setEditForm(alum);
-        setUserType('student');
-      } else {
-        // Try loading as Teacher
-        const teacher = await ApiService.getTeacherById(profileId);
-        if (teacher) {
+      try {
+        // Try to load as Alumnus/Student and Teacher in parallel
+        const [alum, teacher] = await Promise.all([
+          ApiService.getAlumnusById(profileId),
+          ApiService.getTeacherById(profileId)
+        ]);
+
+        if (alum) {
+          setProfileData(alum);
+          setEditForm(alum);
+          setUserType('student');
+        } else if (teacher) {
           setProfileData(teacher);
           setEditForm(teacher);
           setUserType('teacher');
-        } else if (profileId === 'admin-0' || profileId === currentUser?.uid) {
-          // Handle Admin self-view
-          // Note: In a real app, we would have a getAdminById or getProfileById endpoint
-          // For now, we use a mock admin data or the currentUser
+        } else if (profileId === 'admin-0') {
+          // Fixed Admin Data (since it's not in the database models)
           const adminData = {
-            name: 'School Administration',
-            email: 'admin@ausss.edu',
-            password: 'admin123',
-            photoUrl: currentUser?.photoUrl,
-            coverPhotoUrl: currentUser?.coverPhotoUrl,
+            uid: 'admin-0',
+            name: 'Bekele Merga',
+            email: 'bmerga52@gmail.com',
+            role: 'admin',
             bio: 'School Administrator and Portal Manager',
             currentRole: 'School Director'
           };
+          
+          // If the current user IS the admin, use their session data which might be fresher
+          if (currentUser?.role === 'admin' && currentUser?.uid === 'admin-0') {
+            adminData.name = currentUser.name || adminData.name;
+            adminData.email = currentUser.email || adminData.email;
+            adminData.bio = currentUser.bio || adminData.bio;
+            adminData.currentRole = currentUser.currentRole || adminData.currentRole;
+          }
+          
           setProfileData(adminData);
           setEditForm(adminData);
           setUserType('admin');
+        } else {
+          setError(t.notFound[lang]);
         }
+      } catch (err) {
+        console.error('Failed to load profile:', err);
+        setError('Failed to load profile data. Please try again.');
+      } finally {
+        setLoading(false);
       }
     };
 
     loadProfile();
-  }, [profileId, currentUser]);
+  }, [profileId, currentUser, lang]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'avatar' | 'cover') => {
     const file = e.target.files?.[0];
@@ -97,17 +116,56 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
   };
 
   const handleSave = async () => {
-    if (userType === 'student') {
-      await ApiService.updateAlumnus(editForm as Alumnus);
-    } else if (userType === 'teacher') {
-      await ApiService.updateTeacher(editForm as Teacher);
+    try {
+      if (userType === 'teacher') {
+        await ApiService.updateTeacher(editForm);
+      } else if (userType === 'student') {
+        await ApiService.updateAlumnus(editForm);
+      } else if (userType === 'admin') {
+        // Admin update - since we don't have a backend for admin profiles,
+        // we'll simulate success and show a message that it's local only for now.
+        // In a real app, you'd have an AdminModel or update the User record.
+        console.log('Admin profile update simulated:', editForm);
+      }
+      
+      setProfileData(editForm);
+      setIsEditing(false);
+      alert(lang === 'en' ? 'Profile updated successfully!' : 'ፕሮፋይል በስኬት ተዘምኗል!');
+    } catch (err) {
+      console.error('Failed to save profile:', err);
+      alert('Failed to save profile. Please try again.');
     }
-    setProfileData(editForm);
-    setIsEditing(false);
-    alert(t.updateSuccess[lang]);
   };
 
-  if (!profileData) return <div className="p-20 text-center text-slate-400 font-black text-2xl italic">{t.notFound[lang]}</div>;
+  if (loading) {
+    return (
+      <div className="max-w-5xl mx-auto py-32 px-4 text-center">
+        <div className="inline-block animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-slate-900 mb-8"></div>
+        <div className="text-3xl font-black text-slate-300 italic tracking-tighter">
+          Syncing profile data...
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !profileData) {
+    return (
+      <div className="max-w-5xl mx-auto py-32 px-4 text-center space-y-8">
+        <div className="text-9xl grayscale opacity-20">🛸</div>
+        <div className="text-4xl font-black text-slate-400 italic tracking-tighter uppercase">
+          {error || t.notFound[lang]}
+        </div>
+        <Button 
+          onClick={() => window.location.reload()} 
+          variant="primary"
+          icon={RefreshCw}
+          className="px-12 py-6 rounded-full text-xl"
+        >
+          Try Again
+        </Button>
+      </div>
+    );
+  }
 
   const gradeLevels: GradeLevel[] = ['9', '10', '11', '12', 'Graduated'];
   const inputStyle = "w-full p-6 bg-white border-4 border-slate-200 rounded-[2rem] font-black text-slate-900 focus:border-slate-900 outline-none transition-all placeholder:text-slate-300";

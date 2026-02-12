@@ -4,7 +4,7 @@ import { AnnouncementModel } from '../models/models';
 export const getAllAnnouncements = async (req: Request, res: Response) => {
   try {
     const announcements = await AnnouncementModel.findAll({
-      order: [['date', 'DESC']]
+      order: [['datePosted', 'DESC']]
     });
     res.json(announcements);
   } catch (error) {

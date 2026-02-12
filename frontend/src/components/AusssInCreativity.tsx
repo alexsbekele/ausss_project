@@ -21,7 +21,7 @@ const AusssInCreativity: React.FC<AusssInCreativityProps> = ({ lang }) => {
       <div className="max-w-[1600px] mx-auto px-6">
         {/* Section Title */}
         <SectionHeader 
-          title="We Can Create and Invent" 
+          title={lang === 'en' ? 'We In National and Regional Creativity and Innovation Festivals and we have book writer' : lang === 'am' ? 'እኛ በብሔራዊ እና በክልላዊ የፈጠራ እና የፈጠራ ፌስቲቫሎች ውስጥ' : 'Kalaqaa fi Innovatishiin Sadarkaa Biyyaa fi Naannootti Yeroo Hirmaannu'} 
           subtitle="National and Regional Creativity Festivals"
         />
         

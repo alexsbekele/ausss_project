@@ -21,8 +21,8 @@ const AusssInSport: React.FC<AusssInSportProps> = ({ lang }) => {
       <div className="max-w-[1600px] mx-auto px-6">
         {/* Section Title */}
         <SectionHeader 
-          title="WE IN SPORT FESTIVALS" 
-          subtitle="We know to play,  we know to win!"
+          title={lang === 'en' ? 'We In Sport and Talent Festivals' : lang === 'am' ? 'በስፖርት እና በኪነጥበብ ፌስቲቫል ላይ ስንሳተፍ' : 'Festivaala Sportii fi Aartii kessatti'}
+          subtitle={lang === 'en' ? 'We Know to Play; We know to Win' : lang === 'am' ? 'መጫወት እናውቃለን; ማሸነፍም እናውቃለን።' : 'Taphachuus ni Beekna; Mo\'uus ni Beekna'}
         />
         
         {/* Images Grid: 2 Left, 2 Right on desktop */}

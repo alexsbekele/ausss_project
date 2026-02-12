@@ -92,7 +92,7 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
       <Quote className="absolute top-8 right-8 h-8 w-8 text-yellow-500/10 group-hover:text-yellow-500/30 transition-colors duration-500" />
       {renderPhoto(item, 'sm')}
       <h3 className="font-black text-xl text-slate-900 mb-2 leading-tight tracking-tight group-hover:text-yellow-600 transition-colors line-clamp-1">{item.name}</h3>
-      <p className="text-[10px] font-black text-yellow-600 uppercase tracking-[0.2em] mb-6 bg-yellow-50 px-4 py-1 rounded-full">{item.role}</p>
+      {/*<p className="text-[10px] font-black text-yellow-600 uppercase tracking-[0.2em] mb-6 bg-yellow-50 px-4 py-1 rounded-full">{item.role}</p>*/}
       <p className="text-slate-500 text-sm leading-relaxed line-clamp-5 italic mb-6 font-medium">"{item.text[lang]}"</p>
       <div className="mt-auto pt-6 border-t border-slate-50 w-full">
         <span className="text-xs font-black text-slate-300 uppercase tracking-widest group-hover:text-slate-900 transition-colors">
@@ -160,7 +160,7 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
                     {renderPhoto(selected, 'lg')}
                     <div className="text-center md:text-left">
                       <h4 className="text-5xl font-black text-slate-900 mb-4">{selected.name}</h4>
-                      <p className="text-lg font-black text-yellow-600 uppercase tracking-[0.4em]">{selected.role}</p>
+                      {/*<p className="text-lg font-black text-yellow-600 uppercase tracking-[0.4em]">{selected.role}</p>*/}
                     </div>
                  </div>
 

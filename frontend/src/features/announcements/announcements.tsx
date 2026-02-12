@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import type { Announcement, Language, User } from '@shared/types';
 import { ApiService } from '@/services/apiService';
-import { Bell, Calendar, Globe, Newspaper, Info, Trash2 } from 'lucide-react';
+import { Newspaper, Trash2 } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -36,38 +36,38 @@ const Announcements: React.FC<AnnouncementsProps> = ({ lang, currentUser }) => {
   const t = translations.announcementsPage;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-24">
-      <div className="text-center mb-24 space-y-6">
-        <h2 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none">{t.title[lang]}</h2>
-        <p className="text-2xl text-slate-400 font-bold max-w-3xl mx-auto leading-relaxed">{t.subtitle[lang]}</p>
-        <div className="h-2 w-32 bg-yellow-400 mx-auto rounded-full shadow-[0_0_20px_rgba(250,204,21,0.4)]"></div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-24">
+      <div className="text-center mb-12 md:mb-24 space-y-4 md:space-y-6">
+        <h2 className="text-4xl sm:text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none">{t.title[lang]}</h2>
+        <p className="text-lg sm:text-2xl text-slate-400 font-bold max-w-3xl mx-auto leading-relaxed px-4">{t.subtitle[lang]}</p>
+        {/*<div className="h-2 w-24 md:w-32 bg-yellow-400 mx-auto rounded-full shadow-[0_0_20px_rgba(250,204,21,0.4)]"></div>*/}
       </div>
 
-      <div className="space-y-16">
+      <div className="space-y-8 md:space-y-16">
         {announcements.length === 0 ? (
-          <Card className="border-4 border-dashed border-slate-100 p-32 text-center bg-slate-50/50">
-            <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mx-auto mb-10 shadow-sm">
-              <Newspaper className="h-16 w-16 text-slate-200" />
+          <Card className="border-4 border-dashed border-slate-100 p-12 md:p-32 text-center bg-slate-50/50">
+            <div className="w-20 h-20 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center mx-auto mb-6 md:mb-10 shadow-sm">
+              {/*<Newspaper className="h-10 w-10 md:h-16 md:w-16 text-slate-200" />*/}
             </div>
-            <h3 className="text-3xl font-black text-slate-300 tracking-tight">{t.empty[lang]}</h3>
+            <h3 className="text-2xl md:text-3xl font-black text-slate-300 tracking-tight">{t.empty[lang]}</h3>
           </Card>
         ) : (
           announcements.map((item) => (
             <Card key={item.id} className="p-0 overflow-hidden border-slate-100 hover:translate-y-[-8px] transition-all duration-500 group">
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col lg:flex-row">
                 {item.imageUrl && (
-                  <div className="md:w-5/12 relative h-80 md:h-auto overflow-hidden bg-slate-900">
+                  <div className="lg:w-5/12 relative h-64 sm:h-80 lg:h-auto overflow-hidden bg-slate-900">
                     <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" />
                   </div>
                 )}
-                <div className="flex-1 p-12 md:p-20 flex flex-col justify-center space-y-8">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-6">
-                      <div className="flex items-center gap-3 bg-yellow-400 px-6 py-3 rounded-2xl shadow-lg rotate-[-2deg]">
-                        <Newspaper className="w-5 h-5 text-slate-900" />
-                        <span className="text-xs font-black uppercase tracking-widest text-slate-900">{t.newsTag[lang]}</span>
+                <div className="flex-1 p-8 sm:p-12 lg:p-20 flex flex-col justify-center space-y-6 md:space-y-8">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex flex-wrap items-center gap-4 md:gap-6">
+                      <div className="flex items-center gap-3 bg-yellow-400 px-4 md:px-6 py-2 md:py-3 rounded-2xl shadow-lg rotate-[-2deg]">
+                        {/*<Newspaper className="w-4 h-4 md:w-5 md:h-5 text-slate-900" />*/}
+                       {/* <span className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-900">{t.newsTag[lang]}</span>*/}
                       </div>
-                      <div className="text-xs font-black uppercase tracking-[0.2em] text-slate-300">
+                      <div className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-slate-400">
                         {new Date(item.datePosted).toLocaleDateString(lang === 'en' ? 'en-US' : 'am-ET', { 
                           year: 'numeric', 
                           month: 'long', 
@@ -80,20 +80,20 @@ const Announcements: React.FC<AnnouncementsProps> = ({ lang, currentUser }) => {
                         onClick={() => handleDelete(item.id)}
                         variant="danger"
                         icon={Trash2}
-                        className="p-4 bg-red-50 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white shadow-sm hover:shadow-red-200 border-none"
+                        className="p-3 md:p-4 bg-red-50 text-red-500 rounded-2xl hover:bg-red-500 hover:text-white shadow-sm hover:shadow-red-200 border-none"
                         title="Delete Announcement"
                       />
                     )}
                   </div>
 
-                  <h3 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">{item.title}</h3>
-                  <div className="prose prose-2xl text-slate-500 leading-relaxed font-bold max-w-none">{item.content}</div>
+                  <h3 className="text-3xl sm:text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">{item.title}</h3>
+                  <div className="prose prose-lg sm:prose-xl md:prose-2xl text-slate-500 leading-relaxed font-bold max-w-none">{item.content}</div>
 
-                  <div className="flex items-center gap-6 pt-10 border-t-4 border-slate-50">
-                    <div className="w-16 h-16 bg-slate-900 text-yellow-400 rounded-2xl flex items-center justify-center font-black text-xl shadow-xl rotate-3">BM</div>
+                  <div className="flex items-center gap-4 md:gap-6 pt-6 md:pt-10 border-t-4 border-slate-50">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-red-500 text-yellow-400 rounded-xl md:rounded-2xl flex items-center justify-center font-black text-lg md:text-xl shadow-xl rotate-3">SA</div>
                     <div>
-                      <p className="text-lg font-black text-slate-900">{item.authorName || 'Director Bekele Merga'}</p>
-                      <p className="text-xs text-slate-400 font-black uppercase tracking-[0.3em]">{t.adminTag[lang]}</p>
+                      <p className="text-base md:text-lg font-black text-slate-900">{item.authorName || 'Director Bekele Merga'}</p>
+                      {/*<p className="text-[10px] md:text-xs text-slate-400 font-black uppercase tracking-[0.3em]">{t.adminTag[lang]}</p>*/}
                     </div>
                   </div>
                 </div>

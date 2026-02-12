@@ -17,7 +17,11 @@ export const login = async (req: Request, res: Response) => {
         uid: 'admin-0',
         name: ADMIN_NAME,
         role: 'admin',
-        email: ADMIN_EMAIL
+        email: ADMIN_EMAIL,
+        photoUrl: undefined,
+        coverPhotoUrl: undefined,
+        bio: 'School Administrator and Portal Manager',
+        currentRole: 'School Director'
       });
     }
 
@@ -30,7 +34,11 @@ export const login = async (req: Request, res: Response) => {
         uid: user.id,
         name: user.name,
         role: 'teacher',
-        email: user.email
+        email: user.email,
+        photoUrl: user.photoUrl,
+        coverPhotoUrl: user.coverPhotoUrl,
+        bio: user.bio,
+        subject: user.subject
       });
     }
 
@@ -43,7 +51,12 @@ export const login = async (req: Request, res: Response) => {
         uid: user.userId,
         name: user.name,
         role: 'alumni',
-        email: user.email
+        email: user.email,
+        photoUrl: user.photoUrl,
+        coverPhotoUrl: user.coverPhotoUrl,
+        bio: user.bio,
+        currentGrade: user.currentGrade,
+        currentRole: user.currentRole
       });
     }
 

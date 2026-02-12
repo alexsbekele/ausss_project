@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { ApiService } from '@/services/apiService';
 import type { Alumnus, Language } from '@shared/types';
-import { GraduationCap, CheckCircle, ArrowLeft } from 'lucide-react';
+import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
@@ -84,7 +84,7 @@ const AlumniRegistration: React.FC<AlumniRegistrationProps> = ({ onCancel, lang 
         <form onSubmit={handleSubmit} className="p-10 md:p-14 space-y-12">
           <div className="grid md:grid-cols-2 gap-10">
             <div className="space-y-4">
-              <label className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] ml-2">{t.name[lang]}</label>
+              <label className="text-xs font-black text-black uppercase tracking-[0.2em] ml-2">{t.name[lang]}</label>
               <input 
                 type="text" 
                 required 
@@ -95,7 +95,7 @@ const AlumniRegistration: React.FC<AlumniRegistrationProps> = ({ onCancel, lang 
               />
             </div>
             <div className="space-y-4">
-              <label className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] ml-2">{t.email[lang]}</label>
+              <label className="text-xs font-black text-black uppercase tracking-[0.2em] ml-2">{t.email[lang]}</label>
               <input
                 type="email" 
                 required 
@@ -146,7 +146,7 @@ const AlumniRegistration: React.FC<AlumniRegistrationProps> = ({ onCancel, lang 
             <textarea 
               rows={4}
               className={`${inputClass} resize-none`}
-              placeholder="Tell us about your journey..."
+              placeholder="Put our Bio here..."
               value={formData.bio}
               onChange={e => setFormData({...formData, bio: e.target.value})}
             />

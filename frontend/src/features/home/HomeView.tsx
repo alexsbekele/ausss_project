@@ -41,11 +41,10 @@ const HomeView: React.FC<HomeViewProps> = ({
       <Testimonials externalLang={lang} />
       <Teachers externalLang={lang} />
 
-      {latestAnnouncements.length > 0 && (
+      {/* {latestAnnouncements.length > 0 && (
         <section className="py-24 bg-white overflow-hidden">
           <div className="max-w-[1600px] mx-auto px-6">
             <div className="flex flex-col lg:flex-row gap-16 items-start">
-              {/* Left Side: Image Decor */}
               <div className="w-full lg:w-1/3 xl:w-1/4 sticky top-24">
                 <div className="relative">
                   <div className="absolute -inset-4 bg-yellow-400/20 rounded-[3rem] blur-2xl -z-10 animate-pulse" />
@@ -60,8 +59,6 @@ const HomeView: React.FC<HomeViewProps> = ({
                   </div>
                 </div>
               </div>
-
-              {/* Right Side: Content */}
               <div className="flex-1 w-full">
                 <SectionHeader 
                   title={t.latestNews[lang]} 
@@ -76,7 +73,6 @@ const HomeView: React.FC<HomeViewProps> = ({
                     {common.viewAll[lang]}
                   </Button>
                 </SectionHeader>
-
                 <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
                   {latestAnnouncements.map(ann => (
                     <Card key={ann.id} className="flex flex-col relative group min-h-[400px] bg-slate-50">
@@ -113,7 +109,7 @@ const HomeView: React.FC<HomeViewProps> = ({
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* CTA Section for Apply and Member Portal */}
       <section className="py-24 bg-slate-50 border-t border-slate-100">

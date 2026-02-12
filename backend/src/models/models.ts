@@ -8,6 +8,8 @@ export class TeacherModel extends Model {
   public password!: string;
   public subject!: string;
   public bio!: string;
+  public photoUrl!: string;
+  public coverPhotoUrl!: string;
 }
 
 TeacherModel.init({
@@ -35,6 +37,12 @@ TeacherModel.init({
   bio: {
     type: DataTypes.TEXT,
   },
+  photoUrl: {
+    type: DataTypes.TEXT,
+  },
+  coverPhotoUrl: {
+    type: DataTypes.TEXT,
+  },
 }, {
   sequelize,
   modelName: 'Teacher',
@@ -50,6 +58,8 @@ export class AlumnusModel extends Model {
   public companyOrUniversity!: string;
   public bio!: string;
   public isApproved!: boolean;
+  public photoUrl!: string;
+  public coverPhotoUrl!: string;
 }
 
 AlumnusModel.init({
@@ -85,6 +95,12 @@ AlumnusModel.init({
   isApproved: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
+  },
+  photoUrl: {
+    type: DataTypes.TEXT,
+  },
+  coverPhotoUrl: {
+    type: DataTypes.TEXT,
   },
 }, {
   sequelize,
@@ -176,8 +192,10 @@ export class AnnouncementModel extends Model {
   public id!: string;
   public title!: string;
   public content!: string;
-  public date!: string;
-  public category!: string;
+  public datePosted!: number;
+  public isActive!: boolean;
+  public authorName!: string;
+  public imageUrl!: string;
 }
 
 AnnouncementModel.init({
@@ -193,12 +211,19 @@ AnnouncementModel.init({
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  date: {
-    type: DataTypes.STRING,
+  datePosted: {
+    type: DataTypes.BIGINT,
     allowNull: false,
   },
-  category: {
+  isActive: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true,
+  },
+  authorName: {
     type: DataTypes.STRING,
+  },
+  imageUrl: {
+    type: DataTypes.TEXT,
   },
 }, {
   sequelize,
