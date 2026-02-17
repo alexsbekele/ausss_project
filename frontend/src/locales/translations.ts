@@ -129,7 +129,7 @@ export const translations = {
       updateThreshold: { en: 'Update Threshold', am: 'ውጤቱን አዘምን', om: 'Qabxii Haaromsuu' }
     },
     applicants: {
-      title: { en: 'Admission Applicants', am: 'አመልካቾች', om: 'Iyyattoota' },
+      title: { en: 'Admission Applicants', am: 'የመግቢያ አመልካቾች', om: 'Kanneen Galma\'an' },
       status: { en: 'Status', am: 'ሁኔታ', om: 'Haala' }
     }
   },
@@ -201,7 +201,7 @@ export const translations = {
   testimonials: {
     title: { en: 'Student Voices', am: 'የተማሪዎች ድምጽ', om: 'Sagalee Barattootaa' },
     teachersTitle: { en: 'Our Teachers', am: 'የመምህራን ድምጽ', om: 'Barsiisotaa Keenya' },
-    readMore: { en: 'Read More', am: 'ተጨማሪ ያንብቡ', om: 'Dabali dubbisi' },
+    readMore: { en: 'Read More...', am: 'ተጨማሪ ያንብቡ...', om: 'Hunda dubbisuuf...' },
     institution: { en: 'Ambo University Special Secondary School', am: 'የአምቦ ዩኒቨርሲቲ ልዩ የሁለተኛ ደረጃ ትምህርት ቤት', om: 'Mana Barumsaa Addaa Sad. 2ffaa Yuunivarsiitii Amboo' }
   },
   alumniDirectory: {

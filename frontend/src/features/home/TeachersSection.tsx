@@ -19,8 +19,14 @@ const TeachersSection: React.FC<{ externalLang?: Language }> = ({ externalLang }
         <div className="mb-12 text-center"> 
           {/* Section title changed to OUR TEACHERS */}
           <SectionHeader 
-            title="OUR TEACHERS" 
-            subtitle={ "They are dedicated to student success, who beleive their biggest success is the success of students!"} 
+            title= { lang === 'en' ? "OUR TEACHERS" : lang === 'am' ? "መምህራኖቻችን" : "Barsiisota Keenya" }
+            subtitle={ 
+            lang === 'en' 
+                ? "They are dedicated to student success, who believe their biggest success is the success of students!" 
+                : lang === 'am' 
+                ? "እነዚህ መምህራን ለተማሪዎች ስኬት የተጉ ናቸው፤ ትልቁ ስኬታቸውም የተማሪዎቻቸው ውጤታማ መሆን እንደሆነ ያምናሉ!" 
+                : "Barsiisota keenya milkaa'ina barattootaaf of kennan, kanneen milkaa'inni isaanii guddaan milkaa'ina barattootaa ta'uu amanan!"
+            }
             className="!mb-0" 
             titleClassName="text-white text-5xl md:text-7xl font-black italic tracking-tighter" 
             subtitleClassName="text-blue-100" 
@@ -40,13 +46,17 @@ const TeachersSection: React.FC<{ externalLang?: Language }> = ({ externalLang }
         </div>
         
 
-        <div className="mt-12 text-center">
-          <p className="text-blue-100 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
-            Our teachers at Ambo University Secondary School is committed to providing 
-            the highest quality education and mentorship to our students.
-              They are ready anytime, anywhere!
-          </p>
-        </div>
+       <div className="mt-12 text-center">
+        <p className="text-blue-100 text-lg md:text-xl font-medium max-w-3xl mx-auto leading-relaxed">
+          {lang === 'en' ? (
+            "Our teachers at Ambo University Secondary School are committed to providing the highest quality education and mentorship to our students. They are ready anytime, anywhere!"
+          ) : lang === 'am' ? (
+            "የአምቦ ዩኒቨርሲቲ የሁለተኛ ደረጃ ትምህርት ቤት መምህራኖቻችን ከፍተኛ ጥራት ያለው ትምህርት እና ምክር ለተማሪዎቻችን ለመስጠት ቆርጠው የተነሱ ናቸው። በማንኛውም ጊዜና ቦታ ዝግጁ ናቸው!"
+          ) : (
+            "Mana Barumsaa Sadarkaa 2ffaa Yuunivarsiitii Ambotti, barsiisonni keenya barattoota keenyaaf barnoota qulqullina qabu fi gargaarsa barbaachisaa ta'e kennuuf yoomiyyuu duubatti hin jedhan. Yeroo kamiyyuu akkasumas bakka kamittuu barattoota keenya deeggaruuf qophii dha!"
+          )}
+        </p>
+      </div>
       </div> 
     </section> 
   ); 

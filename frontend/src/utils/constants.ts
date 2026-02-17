@@ -47,11 +47,7 @@ export const TESTIMONIALS_DATA = [
     initials: "I",
     color: "bg-orange-100 text-orange-700",
     photoUrl: "/images/",
-    text: {
-      en: "I joined Ambo University Special Secondary School in September 2021 to continue my secondary education, having graduated from Ambo Primary School. All the school community in AUSSS is very supportive and friendly, so it makes it easier to adapt to the new environment and teaching system despite its rigorous curriculum. Learning with bright students and having smart teachers is the privilege I had in AUSSS. Diligence and commitment are not just advice I receive from my teachers; they are principles I see reflected in their work. The system used there helps me to cultivate hard work, time management, and teamwork skills, which assist me in various environments and situations I encounter. AUSSS is a place to learn, to grow, and to meet a positive and impactful community. ",
-      am: "Izi be Amharigna yitsifalECH",
-      om: "Asitti waa'ee AUSSS Ni barreessiti"
-    }
+    text:  "I joined Ambo University Special Secondary School in September 2021 to continue my secondary education, having graduated from Ambo Primary School. All the school community in AUSSS is very supportive and friendly, so it makes it easier to adapt to the new environment and teaching system despite its rigorous curriculum. Learning with bright students and having smart teachers is the privilege I had in AUSSS. Diligence and commitment are not just advice I receive from my teachers; they are principles I see reflected in their work. The system used there helps me to cultivate hard work, time management, and teamwork skills, which assist me in various environments and situations I encounter. AUSSS is a place to learn, to grow, and to meet a positive and impactful community. "
   },
   {
     id: 4,

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Quote, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import type { Language } from '@shared/types';
 import { TESTIMONIALS_DATA, TEACHERS_DATA } from '@/utils/constants';
-import { translations } from '@/locales/translations';
 import Card from '@/components/ui/Card';
 
 interface TestimonialData {
@@ -19,37 +17,26 @@ interface TestimonialData {
   };
 }
 
-const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) => {
-  const [lang, setLang] = useState<Language>(externalLang || 'en');
+const Testimonials: React.FC = () => {
   const [selected, setSelected] = useState<TestimonialData | null>(null);
   const [activeCategory, setActiveCategory] = useState<'student' | 'teacher' | null>(null);
   const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({});
 
-  useEffect(() => {
-    if (externalLang) setLang(externalLang);
-  }, [externalLang]);
-
-  // --- FUNCTION 1: CIRCULAR NAVIGATION LOGIC ---
-  // This function calculates the next or previous index in the array.
-  // It uses the modulo operator (%) to jump from the last item back to the first.
   const handleNavigate = (direction: 'next' | 'prev') => {
     if (!selected || !activeCategory) return;
-    
+
     const currentList = activeCategory === 'teacher' ? TEACHERS_DATA : TESTIMONIALS_DATA;
     const currentIndex = currentList.findIndex(t => t.id === selected.id);
-    
+
     let nextIndex;
     if (direction === 'next') {
       nextIndex = (currentIndex + 1) % currentList.length;
     } else {
-      // (length - 1) handles the jump from index 0 to the end
       nextIndex = (currentIndex - 1 + currentList.length) % currentList.length;
     }
-    
+
     setSelected(currentList[nextIndex]);
   };
-
-  const t = translations.testimonials;
 
   const renderPhoto = (item: TestimonialData, size: 'sm' | 'lg' = 'sm') => {
     const isError = imgErrors[item.id];
@@ -91,11 +78,10 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
       <Quote className="absolute top-8 right-8 h-8 w-8 text-yellow-500/10 group-hover:text-yellow-500/30 transition-colors duration-500" />
       {renderPhoto(item, 'sm')}
       <h3 className="font-black text-xl text-slate-900 mb-2 leading-tight tracking-tight group-hover:text-yellow-600 transition-colors line-clamp-1">{item.name}</h3>
-      {/*<p className="text-[10px] font-black text-yellow-600 uppercase tracking-[0.2em] mb-6 bg-yellow-50 px-4 py-1 rounded-full">{item.role}</p>*/}
-      <p className="text-slate-500 text-sm leading-relaxed line-clamp-5 italic mb-6 font-medium">"{item.text[lang]}"</p>
+      <p className="text-slate-500 text-sm leading-relaxed line-clamp-5 italic mb-6 font-medium">"{item.text.en}"</p>
       <div className="mt-auto pt-6 border-t border-slate-50 w-full">
         <span className="text-xs font-black text-slate-300 uppercase tracking-widest group-hover:text-slate-900 transition-colors">
-           {t.readMore[lang]}
+           Read More
         </span>
       </div>
     </Card>
@@ -103,9 +89,6 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
 
   return (
     <section className="py-32 bg-yellow-200 relative overflow-hidden">
-      {/* --- CHANGE 1: SMOOTH FLOW CSS --- */}
-      {/* We use @keyframes to move the container. The width calculation (350px card + 48px margin) 
-          multiplied by data length ensures a perfectly seamless loop. */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scroll-forward {
           0% { transform: translateX(0); }
@@ -118,13 +101,10 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
       <div className="w-full relative z-10 space-y-24">
         <div className="overflow-hidden">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white uppercase">{t.title[lang]}</h2>
+            <h2 className="text-4xl font-black text-white uppercase">Testimonials</h2>
           </div>
           
           <div className="relative w-full">
-            {/* --- CHANGE 2: INFINITE LOOP DATA --- */}
-            {/* We triple the data array [...data, ...data, ...data] to ensure 
-                there is always content visible during the animation transition. */}
             <div className="flex animate-scroll pause-on-hover w-max">
               {[...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA].map((item, idx) => (
                 <div key={`${item.id}-${idx}`}>
@@ -136,12 +116,9 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
         </div>
       </div>
 
-      {/* --- CHANGE 3: MODAL NAVIGATION BUTTONS --- */}
       {selected && (
         <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-900/95 backdrop-blur-2xl p-6">
           <div className="relative w-full max-w-5xl flex items-center gap-8">
-            
-            {/* DESKTOP PREVIOUS BUTTON */}
             <button
               onClick={(e) => { e.stopPropagation(); handleNavigate('prev'); }}
               className="hidden md:flex p-6 bg-white/10 hover:bg-white text-blue-600 rounded-full transition-all hover:scale-110 active:scale-95 border border-white/20"
@@ -159,15 +136,13 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
                     {renderPhoto(selected, 'lg')}
                     <div className="text-center md:text-left">
                       <h4 className="text-5xl font-black text-slate-900 mb-4">{selected.name}</h4>
-                      {/*<p className="text-lg font-black text-yellow-600 uppercase tracking-[0.4em]">{selected.role}</p>*/}
                     </div>
                  </div>
 
                  <p className="text-xl md:text-3xl text-slate-700 leading-relaxed italic mb-12">
-                   "{selected.text[lang]}"
+                   "{selected.text.en}"
                  </p>
 
-                 {/* MOBILE NAVIGATION BUTTONS */}
                  <div className="flex md:hidden gap-4 mt-8">
                     <button onClick={() => handleNavigate('prev')} className="flex-1 py-4 bg-slate-100 text-slate-900 rounded-2xl font-bold">Previous</button>
                     <button onClick={() => handleNavigate('next')} className="flex-1 py-4 bg-yellow-500 text-white rounded-2xl font-bold">Next</button>
@@ -175,7 +150,6 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
               </div>
             </div>
 
-            {/* DESKTOP NEXT BUTTON */}
             <button
               onClick={(e) => { e.stopPropagation(); handleNavigate('next'); }}
               className="hidden md:flex p-6 bg-white/10 hover:bg-white text-blue-600 rounded-full transition-all hover:scale-110 active:scale-95 border border-white/20"
