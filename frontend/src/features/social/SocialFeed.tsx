@@ -369,7 +369,7 @@ const SocialFeed: React.FC<SocialFeedProps> = ({ currentUser, onViewProfile, lan
                         {post.authorName}
                       </h4>
                       <p className="text-xs font-black text-slate-300 uppercase tracking-widest">
-                        {new Date(post.timestamp).toLocaleDateString(lang === 'en' ? 'en-US' : 'am-ET', {
+                        {new Date(post.timestamp).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
                           hour: '2-digit',

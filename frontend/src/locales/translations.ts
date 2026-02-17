@@ -26,7 +26,7 @@ export const translations = {
     objDesc1: { 
       en: 'Ambo University Special Secondary School is located in Oromia, a regional state. Basically, the pillar motive of the school is to ensure the quality of education, generate qualified students who are competent at the national and international level.',
       am: 'የአምቦ ዩኒቨርሲቲ ልዩ የሁለተኛ ደረጃ ትምህርት ቤት በኦሮሚያ ክልላዊ መንግስት ውስጥ ይገኛል። መሰረታዊ ዓላማው የትምህርት ጥራትን ማረጋገጥ እና በሃገር አቀፍና በአለም አቀፍ ደረጃ ብቁ የሆኑ ተማሪዎችን ማፍራት ነው።',
-      om: "Manni Barumsaa Addaa Sad. 2ffaa Yuunivarsiitii Amboo Oromiyaa keessatti argama. Kaayyoon isaa inni guddaan qulqullina barnootaa mirkaneessuu fi barattoota sadarkaa biyyaalessaa fi addunyaatti dorgomoo ta'an horachuudha."
+      om: "Manni Barumsaa Addaa Sad. 2ffaa Yuunivarsiitii Amboo Naannoo Oromiyaa keessatti argama. Kaayyoon isaa inni guddaan qulqullina barnootaa mirkaneessuu fi barattoota sadarkaa biyyaalessaa fi addunyaatti dorgomoo ta'an horachuudha."
     },
     adminTitle: { en: 'School Administration', am: 'የትምህርት ቤቱ አመራር', om: 'Hooggansa Mana Barumsaa' }
   },
@@ -55,12 +55,12 @@ export const translations = {
     naturalScienceDesc: {
       en: 'We exclusively offer a Natural Science curriculum centered on STEM, designed to empower students who will innovate for our planet and beyond.',
       am: 'ለወደፊት የፕላኔታችንን እና ከዚያም በላይ ያለውን ሁኔታ የሚቀርጹ ተማሪዎችን ለማፍራት በSTEM ላይ ያተኮረ የተፈጥሮ ሳይንስ ትምህርት ብቻ እንሰጣለን።',
-      om: "Barattoota gara fuulduraa dachee keenyaa fi isaa ol uumuu danda'an horachuuf, barnoota Saayinsii Uumamaa STEM irratti xiyyeeffatu qofa ni kennina."
+      om: "Barattoota gara fuulduraa dachee keenyaa fi isaa ol keessatti waan haaraa uumuu danda'an horachuuf, barnoota Saayinsii Uumamaa STEM irratti xiyyeeffatu kennina."
     },
     academicLanguageDesc: {
       en: 'English is the primary medium of instruction, ensuring our graduates are competitive on the global stage.',
-      am: 'ዋናው የማስተማሪያ ቋንቋ እንግሊዝኛ ነው::',
-      om: 'Afaan Ingilizii afaan barsiisaa isa guddaadha.'
+      am: 'እንግሊዝኛ የመምህራን ቋንቋ ሆኖ የተሰጠ ስለሆነ ተመራቂዎቻችን በዓለም አቀፍ ደረጃ የተወዳድሩ እንዲሆኑ ያደርጋሉ።',
+      om: 'Afaan Ingliizii akkuma manneed barnoota Ethiopia biraa Afaan barnootaa fi walii galtee mana barnootaa keenyaati. Kunis barattoota keenya dorgomoo addunyaalessaa akka ta\'an isaan gargaara.'
     },
     globalLeadershipDesc: {
       en: 'To prepare our students for international opportunities, we provide Chinese and French as additional subjects, empowering them to excel far beyond national borders.',
