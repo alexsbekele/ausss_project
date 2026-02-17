@@ -37,9 +37,10 @@ const HomeView: React.FC<HomeViewProps> = ({
       <HomePage lang={lang} />
       <AusssInSport lang={lang} />
       <AusssInCreativity lang={lang} />
+      <Teachers externalLang={lang} />
       
       <Testimonials externalLang={lang} />
-      <Teachers externalLang={lang} />
+      
 
       {/* {latestAnnouncements.length > 0 && (
         <section className="py-24 bg-white overflow-hidden">

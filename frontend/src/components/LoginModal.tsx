@@ -44,12 +44,18 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess, lang }
     setIsLoading(true);
     setError('');
 
-    // This functionality isn't fully supported by current backend routes, 
-    // but we'll mock the delay for UI feedback as requested by the original code.
-    setTimeout(() => {
-      setError("Recovery not yet implemented in backend.");
+    try {
+      const response = await ApiService.forgotPassword(recoveryEmail.trim());
+      if (response.error) {
+        setError(response.error);
+      } else {
+        setStep('recovery_sent');
+      }
+    } catch (err) {
+      setError(lang === 'en' ? 'Failed to send recovery email. Please try again.' : 'የመልሶ ማግኛ ኢሜል መላክ አልተሳካም። እባክዎ እንደገና ይሞክሩ።');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -149,7 +155,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess, lang }
                 <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">{t.emailLabel[lang]}</label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                  <input type="email" required autoFocus value={email} onChange={e => setEmail(e.target.value)} placeholder="name@ambo.edu.et" className="w-full pl-12 pr-4 py-4 bg-white border-2 border-slate-100 rounded-2xl outline-none text-slate-950 font-black text-lg placeholder-slate-300 focus:border-slate-900 transition-all" />
+                  <input type="email" required autoFocus value={email} onChange={e => setEmail(e.target.value)} /*placeholder="name@ambo.edu.et"*/ className="w-full pl-12 pr-4 py-4 bg-white border-2 border-black rounded-2xl outline-none text-slate-950 font-black text-lg placeholder-slate-300 focus:border-slate-900 transition-all" />
                 </div>
               </div>
               <div className="space-y-2">
@@ -159,7 +165,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess, lang }
                 </div>
                 <div className="relative">
                   <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                  <input type={showPassword ? "text" : "password"} required value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" className="w-full pl-12 pr-14 py-4 bg-white border-2 border-slate-100 rounded-2xl outline-none text-slate-950 font-black text-lg placeholder-slate-300 focus:border-slate-900 transition-all" />
+                  <input type={showPassword ? "text" : "password"} required value={password} onChange={e => setPassword(e.target.value)} /*placeholder="••••••••"*/ className="w-full pl-12 pr-14 py-4 bg-white border-2 border-black rounded-2xl outline-none text-slate-950 font-black text-lg placeholder-slate-300 focus:border-slate-900 transition-all" />
                   <Button 
                     type="button" 
                     onClick={() => setShowPassword(!showPassword)} 
@@ -235,15 +241,8 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess, lang }
                   <p className="text-slate-500 font-bold px-4 leading-relaxed">{t.successDesc[lang]}</p>
                </div>
 
-               <div className="bg-slate-50 p-8 rounded-[2.5rem] border-2 border-slate-100 space-y-3">
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">{t.tempPassLabel[lang]}</span>
-                  <div className="text-4xl font-black text-slate-900 tracking-widest font-mono select-all">
-                     {tempPassword}
-                  </div>
-               </div>
-
                <Button 
-                 onClick={() => { setStep('credentials'); setPassword(tempPassword); setEmail(recoveryEmail); }} 
+                 onClick={() => { setStep('credentials'); setEmail(recoveryEmail); }} 
                  variant="primary"
                  fullWidth
                  className="py-5 text-lg uppercase tracking-[0.2em]"

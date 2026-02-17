@@ -42,13 +42,13 @@ export const TESTIMONIALS_DATA = [
   },
   {
     id: 3,
-    name: "Kena Tesfaye",
+    name: "Ifanus ",
     role: "ALUMNI",
-    initials: "KT",
+    initials: "I",
     color: "bg-orange-100 text-orange-700",
-    photoUrl: "/images/kena_tesfaye.png",
+    photoUrl: "/images/",
     text: {
-      en: "SHe will say something here SPECIALLY STEM RELATED...",
+      en: "I joined Ambo University Special Secondary School in September 2021 to continue my secondary education, having graduated from Ambo Primary School. All the school community in AUSSS is very supportive and friendly, so it makes it easier to adapt to the new environment and teaching system despite its rigorous curriculum. Learning with bright students and having smart teachers is the privilege I had in AUSSS. Diligence and commitment are not just advice I receive from my teachers; they are principles I see reflected in their work. The system used there helps me to cultivate hard work, time management, and teamwork skills, which assist me in various environments and situations I encounter. AUSSS is a place to learn, to grow, and to meet a positive and impactful community. ",
       am: "Izi be Amharigna yitsifalECH",
       om: "Asitti waa'ee AUSSS Ni barreessiti"
     }
@@ -147,7 +147,7 @@ export const TEACHERS_DATA = [
 export const ADMIN_MEMBERS = [
   {
     id: 1,
-    name: "Bekele Aga",
+    name: "Bekele Merga",
     role: "School Director",
     image: "/images/Bekele_Merga.jpg",
     color: "border-yellow-400",
@@ -155,16 +155,17 @@ export const ADMIN_MEMBERS = [
   },
   {
     id: 2,
-    name: "Adisu Dagne",
-    role: "Academic Vice Director",
-    image: "/images/Adisu_Dagne.png",
+    name: "Tesfaye Dhaba",
+    role: "Former Supervisor",
+    image: "/images/former_supervisor.png",
     color: "border-slate-300 hover:border-yellow-400",
     roleColor: "text-slate-500"
   },
   {
     id: 3,
-    name: "Mr. Gerremaa",
+    name: "Adisu Dagne",
     role: "Academic Vice Director",
+    image: "/images/Adisu_Dagne.png",
     color: "border-slate-300 hover:border-yellow-400",
     roleColor: "text-slate-500"
   }

@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response } from 'express'; 
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
@@ -13,7 +13,7 @@ import sequelize from './models';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5001; // Changed from 5000 to avoid EADDRINUSE
 
 // Middleware
 app.use(cors());

@@ -32,16 +32,19 @@ TeacherModel.init({
   },
   subject: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   bio: {
     type: DataTypes.TEXT,
+    allowNull: true,
   },
   photoUrl: {
     type: DataTypes.TEXT,
+    allowNull: true,
   },
   coverPhotoUrl: {
     type: DataTypes.TEXT,
+    allowNull: true,
   },
 }, {
   sequelize,
@@ -53,10 +56,12 @@ export class AlumnusModel extends Model {
   public name!: string;
   public email!: string;
   public password!: string;
+  public graduationYear!: number;
   public currentGrade!: string;
   public currentRole!: string;
   public companyOrUniversity!: string;
   public bio!: string;
+  public headline!: string;
   public isApproved!: boolean;
   public photoUrl!: string;
   public coverPhotoUrl!: string;
@@ -80,37 +85,98 @@ AlumnusModel.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  graduationYear: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
   currentGrade: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   currentRole: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   companyOrUniversity: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   bio: {
     type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  headline: {
+    type: DataTypes.STRING,
+    allowNull: true,
   },
   isApproved: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
+    allowNull: true,
   },
   photoUrl: {
     type: DataTypes.TEXT,
+    allowNull: true,
   },
   coverPhotoUrl: {
     type: DataTypes.TEXT,
+    allowNull: true,
   },
 }, {
   sequelize,
   modelName: 'Alumnus',
 });
 
+export class AdminModel extends Model {
+  public uid!: string;
+  public name!: string;
+  public email!: string;
+  public bio!: string;
+  public currentRole!: string;
+  public photoUrl!: string;
+  public coverPhotoUrl!: string;
+}
+
+AdminModel.init({
+  uid: {
+    type: DataTypes.STRING,
+    primaryKey: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true,
+  },
+  bio: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  currentRole: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  photoUrl: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  coverPhotoUrl: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+}, {
+  sequelize,
+  modelName: 'Admin',
+});
+
 export class PostModel extends Model {
   public id!: string;
   public authorId!: string;
   public authorName!: string;
+  public authorPhoto?: string;
   public content!: string;
   public imageUrl!: string;
   public timestamp!: number;
@@ -129,6 +195,10 @@ PostModel.init({
   authorName: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  authorPhoto: {
+    type: DataTypes.TEXT,
+    allowNull: true,
   },
   content: {
     type: DataTypes.TEXT,
@@ -154,6 +224,7 @@ export class CommentModel extends Model {
   public postId!: string;
   public authorId!: string;
   public authorName!: string;
+  public authorPhoto?: string;
   public content!: string;
   public timestamp!: number;
 }
@@ -174,6 +245,10 @@ CommentModel.init({
   authorName: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  authorPhoto: {
+    type: DataTypes.TEXT,
+    allowNull: true,
   },
   content: {
     type: DataTypes.TEXT,

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Quote, X, MessageSquareQuote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Quote, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Language } from '@shared/types';
 import { TESTIMONIALS_DATA, TEACHERS_DATA } from '@/utils/constants';
 import { translations } from '@/locales/translations';
 import Card from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
 
 interface TestimonialData {
   id: number;
@@ -73,7 +72,7 @@ const Testimonials: React.FC<{ externalLang?: Language }> = ({ externalLang }) =
 
     return (
       <div className={`${containerClasses} ${item.color} flex items-center justify-center`}>
-        <span className={`${size === 'sm' ? 'text-2xl' : 'text-7xl'} font-black tracking-tighter text-white`}>
+        <span className={`${size === 'sm' ? 'text-2xl' : 'text-7xl'} font-black tracking-tighter text-black`}>
           {item.initials}
         </span>
       </div>

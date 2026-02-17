@@ -112,11 +112,11 @@ const UserDashboard: React.FC<UserDashboardProps> = ({ currentUser, onLogout, la
                 Portal Dashboard
               </h2>
               <div className="flex items-center gap-4">
-                <span className="text-2xl text-slate-900 font-black">Welcome back, {currentUser.name}</span>
+                <span className="text-2xl text-slate-900 font-black">{t.welcome[lang]}, {currentUser?.name || 'User'}</span>
                 <span className={`px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest ${
                   isAdmin ? 'bg-red-500 text-white' : isTeacher ? 'bg-blue-600 text-white' : 'bg-yellow-500 text-slate-900'
                 }`}>
-                  {currentUser.role.toUpperCase()}
+                  {currentUser?.role?.toUpperCase() || 'USER'}
                 </span>
               </div>
             </div>

@@ -30,8 +30,13 @@ const SocialFeed: React.FC<SocialFeedProps> = ({ currentUser, onViewProfile, lan
   const t = translations.socialFeed;
 
   const loadPosts = async () => {
-    const fetchedPosts = await ApiService.getPosts();
-    setPosts(fetchedPosts);
+    try {
+      const fetchedPosts = await ApiService.getPosts();
+      setPosts(Array.isArray(fetchedPosts) ? fetchedPosts : []);
+    } catch (error) {
+      console.error('Failed to load posts:', error);
+      setPosts([]);
+    }
   };
 
   useEffect(() => {
@@ -185,6 +190,7 @@ const SocialFeed: React.FC<SocialFeedProps> = ({ currentUser, onViewProfile, lan
       id: `comm_${Date.now()}`,
       authorId: currentUser.uid,
       authorName: currentUser.name,
+      authorPhoto: currentUser.photoUrl,
       content,
       timestamp: Date.now()
     };

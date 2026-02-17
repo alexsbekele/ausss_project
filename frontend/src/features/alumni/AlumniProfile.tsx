@@ -40,9 +40,10 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
 
       try {
         // Try to load as Alumnus/Student and Teacher in parallel
-        const [alum, teacher] = await Promise.all([
+        const [alum, teacher, adminDb] = await Promise.all([
           ApiService.getAlumnusById(profileId),
-          ApiService.getTeacherById(profileId)
+          ApiService.getTeacherById(profileId),
+          profileId === 'admin-0' ? ApiService.getAdmin() : Promise.resolve(null)
         ]);
 
         if (alum) {
@@ -54,8 +55,8 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
           setEditForm(teacher);
           setUserType('teacher');
         } else if (profileId === 'admin-0') {
-          // Fixed Admin Data (since it's not in the database models)
-          const adminData = {
+          // Use data from DB if available, otherwise use hardcoded defaults
+          const adminData = adminDb || {
             uid: 'admin-0',
             name: 'Bekele Merga',
             email: 'bmerga52@gmail.com',
@@ -63,14 +64,6 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
             bio: 'School Administrator and Portal Manager',
             currentRole: 'School Director'
           };
-          
-          // If the current user IS the admin, use their session data which might be fresher
-          if (currentUser?.role === 'admin' && currentUser?.uid === 'admin-0') {
-            adminData.name = currentUser.name || adminData.name;
-            adminData.email = currentUser.email || adminData.email;
-            adminData.bio = currentUser.bio || adminData.bio;
-            adminData.currentRole = currentUser.currentRole || adminData.currentRole;
-          }
           
           setProfileData(adminData);
           setEditForm(adminData);
@@ -122,10 +115,7 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
       } else if (userType === 'student') {
         await ApiService.updateAlumnus(editForm);
       } else if (userType === 'admin') {
-        // Admin update - since we don't have a backend for admin profiles,
-        // we'll simulate success and show a message that it's local only for now.
-        // In a real app, you'd have an AdminModel or update the User record.
-        console.log('Admin profile update simulated:', editForm);
+        await ApiService.updateAdmin(editForm);
       }
       
       setProfileData(editForm);
@@ -418,7 +408,7 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
                      </label>
                      {isEditing ? (
                         <div className="relative">
-                          <Briefcase className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 w-8 h-8" />
+                          {/*<Briefcase className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 w-8 h-8" />*/}
                           <input 
                             type="text" 
                             value={userType === 'teacher' ? editForm.subject : editForm.currentRole} 

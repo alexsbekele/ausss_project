@@ -6,6 +6,6 @@ export const logger = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
+  console.error('[error_handler]', err);
+  res.status(500).json({ error: err.message || 'Something went wrong!' });
 };

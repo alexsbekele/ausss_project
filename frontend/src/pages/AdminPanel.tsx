@@ -42,18 +42,24 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
   }, [forceTab]);
 
   const refreshData = async () => {
-    const alumni = await ApiService.getAllAlumni();
-    const teachersList = await ApiService.getTeachers();
-    const applicantsList = await ApiService.getApplicants();
-    const announcementsList = await ApiService.getAnnouncements();
-    const currentThreshold = await ApiService.getThreshold();
+    try {
+      const [alumni, teachersList, applicantsList, announcementsList, currentThreshold] = await Promise.all([
+        ApiService.getAllAlumni(),
+        ApiService.getTeachers(),
+        ApiService.getApplicants(),
+        ApiService.getAnnouncements(),
+        ApiService.getThreshold()
+      ]);
 
-    setAllAlumni(alumni);
-    setTeachers(teachersList);
-    setApplicants(applicantsList);
-    setAnnouncements(announcementsList);
-    setThreshold(currentThreshold);
-    setSavedThreshold(currentThreshold);
+      setAllAlumni(Array.isArray(alumni) ? alumni : []);
+      setTeachers(Array.isArray(teachersList) ? teachersList : []);
+      setApplicants(Array.isArray(applicantsList) ? applicantsList : []);
+      setAnnouncements(Array.isArray(announcementsList) ? announcementsList : []);
+      setThreshold(currentThreshold ?? 0);
+      setSavedThreshold(currentThreshold ?? 0);
+    } catch (error) {
+      console.error('Failed to refresh admin data:', error);
+    }
   };
 
   const handlePostAnnouncement = async (e: React.FormEvent) => {
@@ -63,37 +69,42 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
         return;
     }
 
-    if (editingAnnId) {
-        const existing = announcements.find(a => a.id === editingAnnId);
-        if (existing) {
-            const updated: Announcement = {
-                ...existing,
-                title: annTitle,
-                content: annContent,
-                imageUrl: annImage || undefined
-            };
-            await ApiService.updateAnnouncement(updated);
-            alert("Announcement updated successfully!");
-        }
-    } else {
-        const newAnnouncement: Announcement = {
-            id: `ann_${Date.now()}`,
-            title: annTitle,
-            content: annContent,
-            datePosted: Date.now(),
-            isActive: true,
-            authorName: isAdmin ? 'School Administration' : 'Staff',
-            imageUrl: annImage || undefined
-        };
-        await ApiService.addAnnouncement(newAnnouncement);
-        alert("Announcement published successfully!");
-    }
+    try {
+      if (editingAnnId) {
+          const existing = announcements.find(a => a.id === editingAnnId);
+          if (existing) {
+              const updated: Announcement = {
+                  ...existing,
+                  title: annTitle,
+                  content: annContent,
+                  imageUrl: annImage || undefined
+              };
+              await ApiService.updateAnnouncement(updated);
+              alert("Announcement updated successfully!");
+          }
+      } else {
+          const newAnnouncement: Announcement = {
+              id: `ann_${Date.now()}`,
+              title: annTitle,
+              content: annContent,
+              datePosted: Date.now(),
+              isActive: true,
+              authorName: isAdmin ? 'School Administration' : 'Staff',
+              imageUrl: annImage || undefined
+          };
+          await ApiService.addAnnouncement(newAnnouncement);
+          alert("Announcement published successfully!");
+      }
 
-    setAnnTitle('');
-    setAnnContent('');
-    setAnnImage(null);
-    setEditingAnnId(null);
-    refreshData();
+      setAnnTitle('');
+      setAnnContent('');
+      setAnnImage(null);
+      setEditingAnnId(null);
+      refreshData();
+    } catch (error) {
+      console.error('Failed to save announcement:', error);
+      alert('Failed to save announcement. Please try again.');
+    }
   };
 
   const handleEditAnnouncement = (ann: Announcement) => {
@@ -107,13 +118,18 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
 
   const handleDeleteAnnouncement = async (id: string) => {
     if (!window.confirm("Are you sure you want to delete this announcement?")) return;
-    await ApiService.deleteAnnouncement(id);
-    refreshData();
-    if (editingAnnId === id) {
-        setAnnTitle('');
-        setAnnContent('');
-        setAnnImage(null);
-        setEditingAnnId(null);
+    try {
+      await ApiService.deleteAnnouncement(id);
+      refreshData();
+      if (editingAnnId === id) {
+          setAnnTitle('');
+          setAnnContent('');
+          setAnnImage(null);
+          setEditingAnnId(null);
+      }
+    } catch (error) {
+      console.error('Failed to delete announcement:', error);
+      alert('Failed to delete announcement. Please try again.');
     }
   };
 
@@ -130,14 +146,19 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
 
   const handleUpdateThreshold = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (threshold === '' || Number(threshold) === 0) {
-      alert("please put the limit our the score!");
+    if (threshold === '' || isNaN(Number(threshold))) {
+      alert("Please enter a valid number for the admission threshold!");
       return;
     }
     const val = Number(threshold);
-    await ApiService.setThreshold(val);
-    setSavedThreshold(val);
-    alert(`Admission score threshold updated to ${val}%`);
+    try {
+      await ApiService.setThreshold(val);
+      setSavedThreshold(val);
+      alert(`Admission score threshold updated to ${val}%`);
+    } catch (error) {
+      console.error('Failed to update threshold:', error);
+      alert('Failed to update threshold. Please try again.');
+    }
   };
 
   const handleRemoveMember = async (e: React.MouseEvent, id: string, type: string) => {
@@ -155,15 +176,19 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
 
     if (!window.confirm(confirmMessage)) return;
 
-    if (type === 'TEACHER') {
-      await ApiService.deleteTeacher(id);
-      setTeachers(prev => prev.filter(t => t.id !== id));
-    } else {
-      await ApiService.deleteAlumnus(id);
-      setAllAlumni(prev => prev.filter(a => a.userId !== id));
+    try {
+      if (type === 'TEACHER') {
+        await ApiService.deleteTeacher(id);
+        setTeachers(prev => prev.filter(t => t.id !== id));
+      } else {
+        await ApiService.deleteAlumnus(id);
+        setAllAlumni(prev => prev.filter(a => a.userId !== id));
+      }
+      alert("Member has been removed from the school portal.");
+    } catch (error) {
+      console.error('Failed to remove member:', error);
+      alert('Failed to remove member. Please try again.');
     }
-    
-    alert("Member has been removed from the school portal.");
   };
 
   const handleRegisterMember = async (e: React.FormEvent) => {
@@ -172,36 +197,41 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
     const name = (form.elements.namedItem('name') as HTMLInputElement).value;
     const email = (form.elements.namedItem('email') as HTMLInputElement).value;
 
-    if (regRole === 'teacher') {
-      const subject = (form.elements.namedItem('subject') as HTMLInputElement).value;
-      const newTeacher: Teacher = {
-        id: `t_${Date.now()}`,
-        name,
-        email,
-        password: 'teacher123',
-        subject,
-        bio: `${subject} teacher at AUSSS.`
-      };
-      await ApiService.addTeacher(newTeacher);
-    } else {
-      const regGrade = (form.elements.namedItem('regGrade') as HTMLSelectElement).value as GradeLevel;
-      const alumnus: Alumnus = {
-        userId: `mem_${Date.now()}`,
-        name,
-        email,
-        password: 'ausss123',
-        currentGrade: regGrade,
-        currentRole: regGrade === 'Graduated' ? 'Alumni' : 'Student',
-        companyOrUniversity: 'AUSSS',
-        bio: '',
-        isApproved: true
-      };
-      await ApiService.addAlumnus(alumnus);
-    }
+    try {
+      if (regRole === 'teacher') {
+        const subject = (form.elements.namedItem('subject') as HTMLInputElement).value;
+        const newTeacher: Teacher = {
+          id: `t_${Date.now()}`,
+          name,
+          email,
+          password: 'teacher123',
+          subject,
+          bio: `${subject} teacher at AUSSS.`
+        };
+        await ApiService.addTeacher(newTeacher);
+      } else {
+        const regGrade = (form.elements.namedItem('regGrade') as HTMLSelectElement).value as GradeLevel;
+        const alumnus: Alumnus = {
+          userId: `mem_${Date.now()}`,
+          name,
+          email,
+          password: 'ausss123',
+          currentGrade: regGrade,
+          currentRole: regGrade === 'Graduated' ? 'Alumni' : 'Student',
+          companyOrUniversity: 'AUSSS',
+          bio: '',
+          isApproved: true
+        };
+        await ApiService.addAlumnus(alumnus);
+      }
 
-    refreshData();
-    form.reset();
-    alert('Member registered successfully.');
+      refreshData();
+      form.reset();
+      alert('Member registered successfully.');
+    } catch (error) {
+      console.error('Failed to register member:', error);
+      alert('Failed to register member. Please try again.');
+    }
   };
 
   const allMembers = [

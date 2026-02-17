@@ -9,15 +9,15 @@ import Button from '@/components/ui/Button';
 const SLIDE_IMAGES = [
   "/images/gate_of_the_campus.jpg",
   "/images/stem_of_au.jpg",
-  "/images/teachers.jpg",
+  "/images/amboUni_Hachalu_campus.png",
   "/images/class_of_2024.jpg"
 ];
 
-interface TopStudentsProps {
+interface HomePageProps {
   lang: Language;
 }
 
-const Homepage: React.FC<TopStudentsProps> = ({ lang }) => {
+const Homepage: React.FC<HomePageProps> = ({ lang }) => {
   const t = translations.home;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);

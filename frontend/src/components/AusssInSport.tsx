@@ -31,7 +31,7 @@ const AusssInSport: React.FC<AusssInSportProps> = ({ lang }) => {
             <div 
               key={index} 
               onClick={() => setSelectedImage(src)}
-              className="relative group overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-white bg-white aspect-[4/5] transform transition-all duration-500 hover:-translate-y-4 hover:rotate-2 cursor-pointer"
+              className="relative group overflow-hidden rounded-[2.5rem] shadow-2xl border-8 border-white bg-white aspect-[4/5] transform transition-all duration-500 hover:-translate-y-4 hover:rotate-1 cursor-pointer"
             >
               <img 
                 src={src} 

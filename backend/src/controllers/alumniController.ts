@@ -36,25 +36,34 @@ export const approveAlumnus = async (req: Request, res: Response) => {
 
 export const updateAlumnus = async (req: Request, res: Response) => {
   try {
-    const alumnus = await AlumnusModel.findByPk(req.body.userId);
+    const { userId } = req.body;
+    console.log('[alumni] Attempting to update alumnus with ID:', userId);
+    const alumnus = await AlumnusModel.findByPk(userId);
     if (alumnus) {
       await alumnus.update(req.body);
+      console.log('[alumni] Alumnus updated successfully:', userId);
       res.sendStatus(200);
     } else {
+      console.warn('[alumni] Alumnus not found for update:', userId);
       res.status(404).json({ error: 'Alumnus not found' });
     }
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to update alumnus' });
+  } catch (error: any) {
+    console.error('[alumni] Failed to update alumnus:', error);
+    res.status(500).json({ error: error.message || 'Failed to update alumnus' });
   }
 };
 
 export const registerAlumnus = async (req: Request, res: Response) => {
   try {
     const alumnusData = req.body;
+    console.log('[alumni] Attempting to register new alumnus:', alumnusData.email);
     await AlumnusModel.create(alumnusData);
-    res.status(201).json(alumnusData);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to register alumnus' });
+    console.log('[alumni] Alumnus registered successfully:', alumnusData.email);
+    const alumni = await AlumnusModel.findAll();
+    res.status(201).json(alumni);
+  } catch (error: any) {
+    console.error('[alumni] Failed to register alumnus:', error);
+    res.status(500).json({ error: error.message || 'Failed to register alumnus' });
   }
 };
 

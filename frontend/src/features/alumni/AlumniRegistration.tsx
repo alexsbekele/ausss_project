@@ -36,6 +36,7 @@ const AlumniRegistration: React.FC<AlumniRegistrationProps> = ({ onCancel, lang 
         companyOrUniversity: formData.company,
         bio: formData.bio,
         email: formData.email,
+        password: 'alumni_temp_pass', // Provide a default password for self-registration
         isApproved: false
     };
     await ApiService.registerAlumnus(newAlumnus);

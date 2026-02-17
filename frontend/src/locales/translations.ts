@@ -93,6 +93,7 @@ export const translations = {
     applicants: { en: 'Applicants', am: 'አመልካቾች', om: 'Iyyattoota' },
     profile: { en: 'My Profile', am: 'የኔ መገለጫ', om: 'Proofayilii Koo' },
     logout: { en: 'Log Out', am: 'ውጣ', om: 'Bahi' },
+    welcome: { en: 'Welcome back', am: 'እንኳን ደህና መጡ', om: 'Baga nagaan dhufte' },
     backTo: { en: 'Back to', am: 'ወደ ... ተመለስ', om: 'Gara ... deebi\'i' }
   },
   admin: {
