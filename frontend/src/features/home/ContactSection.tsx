@@ -34,7 +34,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
               </div>
               <div>
                 <p className="text-sm font-black text-yellow-600 uppercase tracking-widest mb-1">{t.phoneLabel[lang]}</p>
-                <span className="text-xl font-bold text-slate-800">+251 ....</span>
+                <span className="text-xl font-bold text-slate-800">+2511 18 76 76 87</span>
               </div>
             </div>
 
@@ -44,7 +44,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
               </div>
               <div>
                 <p className="text-sm font-black text-yellow-600 uppercase tracking-widest mb-1">{t.emailLabel[lang]}</p>
-                <span className="text-xl font-bold text-slate-800">bmerga52@gmail.com</span>
+                <span className="text-xl font-bold text-slate-800">info@ausss.com</span>
               </div>
             </div>
           </div>

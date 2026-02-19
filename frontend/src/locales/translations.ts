@@ -16,7 +16,7 @@ export const translations = {
   home: {
     heroTitle: { en: 'Ambo University', am: 'አምቦ ዩኒቨርሲቲ', om: 'Yuunivarsiitii Amboo' },
     heroSubtitle: { en: 'Special Secondary School', am: 'ልዩ የሁለተኛ ደረጃ ትምህርት ቤት', om: 'Mana Barumsaa Addaa' },
-    motto: { en: '"Every young in here is a Scientist"', am: '"እዚህ ያለ እያንዳንዱ ወጣት ሳይንቲስት ነው"', om: '"Dargaggeessi as jiru hundi Saayintistidha"' },
+    motto: { en: '"Learning Today, Leading Tomorrow!"', am: '"ዛሬ መማር ፣ ነገ መምራት"', om: '"Har\'a Barachuu; Boru Dursuu!"' },
     latestNews: { en: 'Latest News & Announcements', am: 'የቅርብ ጊዜ ዜናዎች እና ማስታወቂያዎች', om: 'Oodeeffannoo fi Beeksisa Haaraa' },
     newsSubtitle: { en: 'Stay informed with the latest school events and updates', am: 'ስለ ትምህርት ቤቱ አዳዲስ ኩነቶች እና መረጃዎች ይወቁ', om: 'Oduuwwan haaraa fi qophiiwwan mana barumsaa irraa beekaa ta\'aa' }
   },
@@ -58,8 +58,8 @@ export const translations = {
       om: "Barattoota gara fuulduraa dachee keenyaa fi isaa ol keessatti waan haaraa uumuu danda'an horachuuf, barnoota Saayinsii Uumamaa STEM irratti xiyyeeffatu kennina."
     },
     academicLanguageDesc: {
-      en: 'English is the primary medium of instruction, ensuring our graduates are competitive on the global stage.',
-      am: 'እንግሊዝኛ የመምህራን ቋንቋ ሆኖ የተሰጠ ስለሆነ ተመራቂዎቻችን በዓለም አቀፍ ደረጃ የተወዳድሩ እንዲሆኑ ያደርጋሉ።',
+      en: 'English is the primary medium of instruction, ensuring our students are competitive on the global stage.',
+      am: 'እንግሊዝኛ የመምህራን ቋንቋ ሆኖ የተሰጠ ስለሆነ ተማሪዎቻችን በዓለም አቀፍ ደረጃ የተወዳድሩ እንዲሆኑ ያደርጋሉ።',
       om: 'Afaan Ingliizii akkuma manneed barnoota Ethiopia biraa Afaan barnootaa fi walii galtee mana barnootaa keenyaati. Kunis barattoota keenya dorgomoo addunyaalessaa akka ta\'an isaan gargaara.'
     },
     globalLeadershipDesc: {

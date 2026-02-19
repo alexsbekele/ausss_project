@@ -10,11 +10,7 @@ interface TestimonialData {
   initials: string;
   color: string;
   photoUrl?: string;
-  text: {
-    en: string;
-    am: string;
-    om: string;
-  };
+  text: string;
 }
 
 const Testimonials: React.FC = () => {
@@ -78,7 +74,7 @@ const Testimonials: React.FC = () => {
       <Quote className="absolute top-8 right-8 h-8 w-8 text-yellow-500/10 group-hover:text-yellow-500/30 transition-colors duration-500" />
       {renderPhoto(item, 'sm')}
       <h3 className="font-black text-xl text-slate-900 mb-2 leading-tight tracking-tight group-hover:text-yellow-600 transition-colors line-clamp-1">{item.name}</h3>
-      <p className="text-slate-500 text-sm leading-relaxed line-clamp-5 italic mb-6 font-medium">"{item.text.en}"</p>
+      <p className="text-slate-500 text-sm leading-relaxed line-clamp-5 italic mb-6 font-medium">"{item.text}"</p>
       <div className="mt-auto pt-6 border-t border-slate-50 w-full">
         <span className="text-xs font-black text-slate-300 uppercase tracking-widest group-hover:text-slate-900 transition-colors">
            Read More
@@ -140,7 +136,7 @@ const Testimonials: React.FC = () => {
                  </div>
 
                  <p className="text-xl md:text-3xl text-slate-700 leading-relaxed italic mb-12">
-                   "{selected.text.en}"
+                   "{selected.text}"
                  </p>
 
                  <div className="flex md:hidden gap-4 mt-8">

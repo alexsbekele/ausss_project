@@ -1,4 +1,3 @@
-
 export const HERO_IMAGES = [
   "/images/gate_of_the_campus.jpg",
   "/images/stem_of_au.jpg",
@@ -21,33 +20,25 @@ export const TESTIMONIALS_DATA = [
     initials: "HB",
     color: "bg-pink-100 text-pink-700",
     photoUrl: "/images/Hundaol_Begna.png",
-    text: {
-      en: "He will say something here...",
-      am: "Izi be Amharigna yitsifal",
-      om: "Asitti waa'ee AUSSS Ni barreessa"
-    }
+    text: "He will say something here..."
   },
   {
     id: 2,
-    name: "Merga Bekele Hirkate",
+    name: "Merga Bekele",
     role: "ALUMNI",
     initials: "MH",
     color: "bg-blue-100 text-blue-700",
-    photoUrl: "/images/merga_bekele_hirkate.jpg",
-    text: {
-      en: "I will say something here...",
-      am: "Izi be Amharigna yitsifalEW",
-      om: "Asitti waa'ee AUSSS NAN barreessa"
-    } 
+    photoUrl: "/images/mergaBekele.png",
+    text: "I will say something here..."
   },
   {
     id: 3,
-    name: "Ifanus ",
+    name: "Ifanus Mulatu",
     role: "ALUMNI",
     initials: "I",
     color: "bg-orange-100 text-orange-700",
     photoUrl: "/images/",
-    text:  "I joined Ambo University Special Secondary School in September 2021 to continue my secondary education, having graduated from Ambo Primary School. All the school community in AUSSS is very supportive and friendly, so it makes it easier to adapt to the new environment and teaching system despite its rigorous curriculum. Learning with bright students and having smart teachers is the privilege I had in AUSSS. Diligence and commitment are not just advice I receive from my teachers; they are principles I see reflected in their work. The system used there helps me to cultivate hard work, time management, and teamwork skills, which assist me in various environments and situations I encounter. AUSSS is a place to learn, to grow, and to meet a positive and impactful community. "
+    text: "I joined Ambo University Special Secondary School in September 2021 to continue my secondary education, having graduated from Ambo Primary School. All the school community in AUSSS is very supportive and friendly, so it makes it easier to adapt to the new environment and teaching system despite its rigorous curriculum. Learning with bright students and having smart teachers is the privilege I had in AUSSS. Diligence and commitment are not just advice I receive from my teachers; they are principles I see reflected in their work. The system used there helps me to cultivate hard work, time management, and teamwork skills, which assist me in various environments and situations I encounter. AUSSS is a place to learn, to grow, and to meet a positive and impactful community."
   },
   {
     id: 4,
@@ -56,11 +47,7 @@ export const TESTIMONIALS_DATA = [
     initials: "DG",
     color: "bg-purple-100 text-purple-700",
     photoUrl: "/images/dessalegn_getachew.png",
-    text: {
-      en: "He will say something here...",
-      am: "Izi be Amharigna yitsifal",
-      om: "Asitti waa'ee AUSSS Ni barreessa"
-    }
+    text: "He will say something here..."
   },
   {
     id: 5,
@@ -68,11 +55,7 @@ export const TESTIMONIALS_DATA = [
     role: "ALUMNI",
     initials: "YI",
     color: "bg-green-100 text-green-700",
-    text: {
-      en: "she will say something here...",
-      am: "Izi be Amharigna yitsifalech",
-      om: "Asitti waa'ee AUSSS Ni barreessiti"
-    }
+    text: "she will say something here..."
   },
   {
     id: 6,
@@ -80,11 +63,7 @@ export const TESTIMONIALS_DATA = [
     role: "ALUMNI",
     initials: "GA",
     color: "bg-yellow-100 text-yellow-700",
-    text: {
-      en: "He will say something here SPECIALLY ABOUT STEM RELATED...",
-      am: "Izi be Amharigna yitsifal",
-      om: "Asitti waa'ee AUSSS Ni barreessa"
-    }
+    text: "He will say something here SPECIALLY ABOUT STEM RELATED..."
   }
 ];
 
@@ -96,11 +75,7 @@ export const TEACHERS_DATA = [
     initials: "AB",
     photoUrl: "/images/MrMegersa.png",
     color: "bg-blue-100 text-blue-700",
-    text: {
-      en: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS",
-      am: "BE Amharignam ytsfal",
-      om: "Wanta isaanitti tolu barreessuu danda'u"
-    }
+    text: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS"
   },
   {
     id: 2,
@@ -108,11 +83,7 @@ export const TEACHERS_DATA = [
     role: "Mathematics",
     initials: "FF",
     color: "bg-purple-100 text-purple-700",
-    text: {
-      en: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS",
-      am: "BE Amharignam ytsfal",
-      om: "Wanta isaanitti tolu barreessuu danda'u"
-    }
+    text: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS"
   },
   {
     id: 3,
@@ -120,11 +91,7 @@ export const TEACHERS_DATA = [
     role: "Biology",
     initials: "TL",
     color: "bg-green-100 text-green-700",
-    text: {
-      en: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS",
-      am: "BE Amharignam ytsfal",
-      om: "Wanta isaanitti tolu barreessuu danda'u"
-    }
+    text: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS"
   },
   {
     id: 4,
@@ -132,11 +99,7 @@ export const TEACHERS_DATA = [
     role: "Chemistry",
     initials: "KM",
     color: "bg-orange-100 text-orange-700",
-    text: {
-      en: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS",
-      am: "BE Amharignam ytsfal",
-      om: "Wanta isaanitti tolu barreessuu danda'u"
-    }
+    text: "QOUTE OR JUST ONE SENTENCES FEELING OF TEACHING STUDENT AT AUSS"
   }
 ];
 
