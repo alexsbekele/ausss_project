@@ -29,7 +29,7 @@ export const TESTIMONIALS_DATA = [
     initials: "MH",
     color: "bg-blue-100 text-blue-700",
     photoUrl: "/images/mergaBekele.png",
-    text:"\Nagaa Ta'aa…\" With those final words, I hugged my mom and siblings and started my journey from Dano Wereda, western part of the zone. It was my very first time leaving them, so it was not easy. To keep my spirit up, I told myself, \"Anyway, it\'s my dream that I was doing for,\" kinda self-motivation. My experience in Ambo was thrilling, living in such a friendly and supportive community. However, my first weeks at AUSSS were a time of big decision-making. The curriculum was so rigorous that it was difficult to adapt. I struggled between two choices: \"I’ll drop out\" or \"I’ll do my best to adapt and score good marks. \" My roommate chose to drop out, but after contemplating every possibility, I stuck to the second option. Then, every day, my experience became better and better. The teachers and school management treated us like family, and it was easy to see their thirst for our success. Behind my hard work was a strong and friendly school community. From class to outside class: trips, visiting industries, museums, and parks to the STEM Center making theory come alive, my perspective on my country changed. It inspired me to think about real-world projects. There were many challenges, but the school vibe was stronger than any obstacle. The humble and committed students at AUSSS strengthened my decision to follow a challenging path. That rigorous environment led me to grow and mature enough. I have unforgettable memories of the love and concern I saw there, which shaped me into the person I am today. THERE ARE MORE TO EXPCET!"
+    text:"\Nagaa Ta'aa…\" With those final words, I hugged my mom and siblings and started my journey from Dano Wereda, western part of the zone. It was my very first time leaving them, so it was not easy. To keep my spirit up, I told myself, \"Anyway, it\'s my dream that I was doing for,\" kinda self-motivation. My experience in Ambo was thrilling, living in such a friendly and supportive community. However, my first weeks at AUSSS were a time of big decision-making. The curriculum was so rigorous that it was difficult to adapt. I struggled between two choices: \"I’ll drop out\" or \"I’ll do my best to adapt and score good marks. \" My roommate chose to drop out, but after contemplating every possibility, I stuck to the second option. Then, every day, my experience became better and better, being resilient through challenges. The teachers and school management treated us like family, and it was easy to see their thirst for our success. Behind my hard work was a strong and friendly school community. From class to outside class: trips, visiting industries, museums, and parks to the STEM Center making theory come alive, my perspective on my country changed. It inspired me to think about real-world projects. There were many challenges, but the school vibe was stronger than any obstacle. The humble and committed students at AUSSS strengthened my decision to follow a challenging path. That rigorous environment led me to grow and mature enough. I have unforgettable memories of the love and concern I saw there, which shaped me into the person I am today. THERE ARE MORE TO EXPCET!"
   },
   {
     id: 3,
@@ -40,7 +40,15 @@ export const TESTIMONIALS_DATA = [
     photoUrl: "/images/ifanus_mulatu.png",
     text: "I joined Ambo University Special Secondary School in September 2021 to continue my secondary education, having graduated from Ambo Primary School. All the school community in AUSSS is very supportive and friendly, so it makes it easier to adapt to the new environment and teaching system despite its rigorous curriculum. Learning with bright students and having smart teachers is the privilege I had in AUSSS. Diligence and commitment are not just advice I receive from my teachers; they are principles I see reflected in their work. The system used there helps me to cultivate hard work, time management, and teamwork skills, which assist me in various environments and situations I encounter. AUSSS is a place to learn, to grow, and to meet a positive and impactful community."
   },
-
+ {
+    id: 4,
+    name: "Lemi Fayera",
+    role: "ALUMNI",
+    initials: "LF",
+    color: "bg-purple-100 text-purple-700",
+    photoUrl: "/images/Lemi_Fayera.png",
+    text: "I am one of the Alpha Senior batch of AUSSS, the first batch to graduate from the school. Having completed my high school journey there, I often refer to that period as the second transformation of my life. It was a time when I truly began to understand what life means, how to live harmoniously with others, and the profound feeling of being far from family. Eventhough I felt being far from family was a challenge, I also found it to be an opportunity for personal growth. It taught me independence and resilience."
+  },
 ];
 
 export const TEACHERS_DATA = [
