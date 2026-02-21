@@ -127,7 +127,7 @@ const Testimonials: React.FC = () => {
                 <X className="h-8 w-8" />
               </button>
 
-              <div className="p-10 md:p-24">
+              <div className="p-10 md:p-24 max-h-[70vh] overflow-y-auto">
                  <div className="flex flex-col md:flex-row items-center gap-14 mb-16">
                     {renderPhoto(selected, 'lg')}
                     <div className="text-center md:text-left">
