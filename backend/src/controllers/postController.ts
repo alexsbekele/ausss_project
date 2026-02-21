@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { PostModel, CommentModel } from '../models/models';
 
-export const getAllPosts = async (req: Request, res: Response) => {
+export const getAllPosts = async (_req: Request, res: Response) => {
   try {
     const posts = await PostModel.findAll({
       include: [{ model: CommentModel, as: 'commentsList' }],

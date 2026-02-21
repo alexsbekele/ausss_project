@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import type { UserRole, User, Language } from '@shared/types';
 import { ApiService } from '@/services/apiService';
-import { X, Mail, Lock, User as UserIcon, ShieldCheck, Eye, EyeOff, ArrowLeft, BookOpen, Key, CheckCircle } from 'lucide-react';
+import { X, Mail, Lock, User as UserIcon, ShieldCheck, Eye, EyeOff, ArrowLeft, Key, CheckCircle, BookOpen } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
@@ -22,7 +22,8 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess, lang }
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [tempPassword, setTempPassword] = useState('');
+  
+  // Removed unused tempPassword and generateTempPass as per error log
 
   const t = translations.loginModal;
 
@@ -30,13 +31,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLoginSuccess, lang }
     setRole(selectedRole);
     setStep('credentials');
     setError('');
-  };
-
-  const generateTempPass = () => {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    let res = 'AUSSS-';
-    for(let i=0; i<4; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
-    return res;
   };
 
   const handleRecovery = async (e: React.FormEvent) => {

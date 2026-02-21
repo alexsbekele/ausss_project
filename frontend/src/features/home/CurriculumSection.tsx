@@ -1,5 +1,5 @@
 import React from 'react';
-import { Microscope, Globe, Languages } from 'lucide-react';
+import { Languages, Microscope, Globe } from 'lucide-react';
 import type { Language } from '@shared/types';
 import { translations } from '@/locales/translations';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -18,8 +18,8 @@ const CurriculumSection: React.FC<CurriculumSectionProps> = ({ lang }) => {
       title: t.enrichedTitle[lang],
       desc: t.naturalScienceDesc[lang],
       image: '/images/natural_scince_and_STEM.png',
-      //icon: <Microscope className="w-8 h-8 text-slate-900" />,
-      //iconBg: 'bg-yellow-400',
+      icon: <Microscope className="w-8 h-8 text-slate-900" />,
+      iconBg: 'bg-yellow-400',
       reverse: false
     },
     {
@@ -27,8 +27,8 @@ const CurriculumSection: React.FC<CurriculumSectionProps> = ({ lang }) => {
       title: t.languageTitle[lang],
       desc: t.academicLanguageDesc[lang],
       image: '/images/EnglishClass.png',
-      //icon: <Globe className="w-8 h-8 text-white" />,
-      //iconBg: 'bg-blue-600',
+      icon: <Globe className="w-8 h-8 text-white" />,
+      iconBg: 'bg-blue-600',
       reverse: true
     },
     {

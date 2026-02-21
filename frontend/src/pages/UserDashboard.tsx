@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import type { User } from '@shared/types';
 import { 
-  Mail, UserPlus, Users, 
-  Rss, UserCircle, Target, ClipboardList, Activity, LogOut, ArrowLeft, Megaphone, Globe
+  UserPlus, Users, 
+  UserCircle, Target, ClipboardList, LogOut, ArrowLeft, Megaphone, Globe
 } from 'lucide-react';
 import SocialFeed from '@/features/social/SocialFeed';
 import AlumniProfile from '@/features/alumni/AlumniProfile';
@@ -88,7 +88,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({ currentUser, onLogout, la
 
     switch (activeTab) {
       case 'posts':
-        return <SocialFeed currentUser={currentUser} onViewProfile={handleViewProfile} />;
+        return <SocialFeed currentUser={currentUser} onViewProfile={handleViewProfile} lang={lang} />;
       case 'profile':
         return <AlumniProfile profileId={currentUser.uid} currentUser={currentUser} lang={lang} />;
       case 'announcements_admin':

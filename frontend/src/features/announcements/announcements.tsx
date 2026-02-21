@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import type { Announcement, Language, User } from '@shared/types';
 import { ApiService } from '@/services/apiService';
-import { Newspaper, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -34,6 +34,11 @@ const Announcements: React.FC<AnnouncementsProps> = ({ lang, currentUser }) => {
   };
 
   const t = translations.announcementsPage;
+
+  // Fix unused variable issues by removing unused imports
+  // Newspaper is imported but unused in the rendered output (commented out)
+  // Trash2 is used.
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-24">

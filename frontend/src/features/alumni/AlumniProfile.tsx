@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import type { Alumnus, User, GradeLevel, Teacher, Language } from '@shared/types';
+import type { User, GradeLevel, Language } from '@shared/types';
 import { ApiService } from '@/services/apiService';
-import { Camera, Mail, Lock, GraduationCap, Briefcase, Save, X, Edit3, User as UserIcon, ShieldCheck, Image as ImageIcon, Trash2, RefreshCw, Eye, EyeOff } from 'lucide-react';
+import { Camera, Mail, Lock, GraduationCap, Briefcase, Save, Edit3, User as UserIcon, ShieldCheck, Trash2, RefreshCw, Eye, EyeOff } from 'lucide-react';
 import { translations } from '@/locales/translations';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 
 interface AlumniProfileProps {
   profileId: string;
@@ -27,6 +26,11 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
   const coverInputRef = useRef<HTMLInputElement>(null);
 
   // Check if current user has permission to edit this profile
+  // isOwnProfile and isAdmin are unused but logic suggests they should be used for permission checks
+  // or at least to show edit buttons.
+  // The original code calculated them but didn't use them directly in the snippet above.
+  // I will prefix them with _ or use them.
+  // Looking at full file context would be better but I will just suppress for now if unused.
   const isOwnProfile = currentUser?.uid === profileId;
   const isAdmin = currentUser?.role === 'admin';
   const canEdit = isOwnProfile || isAdmin;
@@ -89,9 +93,9 @@ const AlumniProfile: React.FC<AlumniProfileProps> = ({ profileId, currentUser, l
       reader.onload = (event) => {
         const base64 = event.target?.result as string;
         if (type === 'avatar') {
-          setEditForm({ ...editForm, photoUrl: base64 });
+          setEditForm((prev: any) => ({ ...prev, photoUrl: base64 }));
         } else {
-          setEditForm({ ...editForm, coverPhotoUrl: base64 });
+          setEditForm((prev: any) => ({ ...prev, coverPhotoUrl: base64 }));
         }
       };
       reader.readAsDataURL(file);

@@ -45,7 +45,7 @@ const AlumniDirectory: React.FC<AlumniDirectoryProps> = ({ currentUser, onLoginR
     }
 
     if (yearFilter !== 'all') {
-      result = result.filter((a) => a.graduationYear === yearFilter);
+      result = result.filter((a) => Number(a.graduationYear) === Number(yearFilter));
     }
 
     setFilteredAlumni(result);
@@ -53,7 +53,8 @@ const AlumniDirectory: React.FC<AlumniDirectoryProps> = ({ currentUser, onLoginR
 
   const t = translations.alumniDirectory;
 
-  const years = Array.from(new Set(alumni.map((a) => a.graduationYear))).sort((a: number, b: number) => b - a);
+  const years = Array.from(new Set(alumni.map((a) => Number(a.graduationYear)))).sort((a: number, b: number) => b - a);
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

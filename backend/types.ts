@@ -73,6 +73,7 @@ export interface SocialComment {
   id: string;
   authorId: string;
   authorName: string;
+  authorPhoto?: string;
   content: string;
   timestamp: number;
 }
@@ -105,15 +106,17 @@ export interface DirectNotification {
   senderName: string;
 }
 
-export enum PageView {
-  HOME = 'HOME',
-  ALUMNI_PROFILE = 'ALUMNI_PROFILE',
-  ALUMNI_FEED = 'ALUMNI_FEED',
-  CHAT = 'CHAT',
-  ABOUT = 'ABOUT',
-  ADMISSION = 'ADMISSION',
-  ADMISSION_REGISTER = 'ADMISSION_REGISTER',
-  CURRICULUM = 'CURRICULUM',
-  ANNOUNCEMENTS = 'ANNOUNCEMENTS',
-  ADMIN = 'ADMIN'
-}
+export const PageView = {
+  HOME: 'HOME',
+  ALUMNI_PROFILE: 'ALUMNI_PROFILE',
+  ALUMNI_FEED: 'ALUMNI_FEED',
+  CHAT: 'CHAT',
+  ABOUT: 'ABOUT',
+  ADMISSION: 'ADMISSION',
+  ADMISSION_REGISTER: 'ADMISSION_REGISTER',
+  CURRICULUM: 'CURRICULUM',
+  ANNOUNCEMENTS: 'ANNOUNCEMENTS',
+  ADMIN: 'ADMIN'
+} as const;
+
+export type PageView = typeof PageView[keyof typeof PageView];

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'; 
 import type { Language } from '@shared/types'; 
-import { translations } from '@/locales/translations'; 
 import SectionHeader from '@/components/ui/SectionHeader'; 
 
 const TeachersSection: React.FC<{ externalLang?: Language }> = ({ externalLang }) => { 
@@ -9,8 +8,6 @@ const TeachersSection: React.FC<{ externalLang?: Language }> = ({ externalLang }
   useEffect(() => { 
     if (externalLang) setLang(externalLang); 
   }, [externalLang]); 
-
-  const t = translations.testimonials; 
 
   return ( 
     <section className="py-24 bg-blue-600 overflow-hidden rounded-[4rem] my-12 mx-4 md:mx-12 shadow-2xl relative"> 

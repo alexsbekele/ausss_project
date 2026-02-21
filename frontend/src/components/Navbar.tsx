@@ -16,7 +16,7 @@ interface NavbarProps {
   lang: Language;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentUser, onNavigate, onLogin, onLogout, onLanguageChange, currentView, lang }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentUser, onNavigate, onLogin, onLanguageChange, currentView, lang }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
@@ -162,7 +162,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser, onNavigate, onLogin, onLog
 
            <div className="pt-4 border-t border-slate-800">
              <p className="px-8 mb-2 text-xs font-black uppercase tracking-widest text-slate-500">
-               {t_common.selectLanguage?.[lang] || 'Select Language'}
+               {(t_common as any).selectLanguage?.[lang] || 'Select Language'}
              </p>
              <div className="grid grid-cols-1 gap-2">
                {languages.map(l => (

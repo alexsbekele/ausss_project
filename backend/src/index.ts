@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express'; 
+import express, { type Request, type Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth';
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(logger);
 
 // Health check
-app.get('/api/health', (req: Request, res: Response) => {
+app.get('/api/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
@@ -41,8 +41,10 @@ app.use(errorHandler);
 sequelize.sync().then(() => {
   app.listen(port, () => {
     console.log(`Backend server running at http://localhost:${port}`);
-    console.log('SQLite Database synced.');
+    console.log(`${process.env.DATABASE_URL ? 'PostgreSQL' : 'SQLite'} Database synced.`);
   });
 }).catch(err => {
   console.error('Failed to sync database:', err);
 });
+
+export default app;

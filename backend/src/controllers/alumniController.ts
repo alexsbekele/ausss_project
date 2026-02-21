@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { AlumnusModel } from '../models/models';
 
-export const getAllAlumni = async (req: Request, res: Response) => {
+export const getAllAlumni = async (_req: Request, res: Response) => {
   try {
     const alumni = await AlumnusModel.findAll();
     res.json(alumni);

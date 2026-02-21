@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { TeacherModel, AlumnusModel, AdminModel } from '../models/models';
 import nodemailer from 'nodemailer';
 
@@ -93,7 +93,7 @@ export const login = async (req: Request, res: Response) => {
   }
 };
 
-export const getAdmin = async (req: Request, res: Response) => {
+export const getAdmin = async (_req: Request, res: Response) => {
   try {
     const admin = await AdminModel.findOne({ where: { uid: 'admin-0' } });
     if (admin) {
@@ -153,11 +153,9 @@ export const forgotPassword = async (req: Request, res: Response) => {
     
     // 1. Find user (Teacher or Alumnus)
     let user: any = await TeacherModel.findOne({ where: { email: normalizedEmail } });
-    let userType: 'teacher' | 'alumnus' | null = user ? 'teacher' : null;
 
     if (!user) {
       user = await AlumnusModel.findOne({ where: { email: normalizedEmail } });
-      if (user) userType = 'alumnus';
     }
 
     if (!user) {

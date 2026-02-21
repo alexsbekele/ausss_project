@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { AnnouncementModel } from '../models/models';
 
-export const getAllAnnouncements = async (req: Request, res: Response) => {
+export const getAllAnnouncements = async (_req: Request, res: Response) => {
   try {
     const announcements = await AnnouncementModel.findAll({
       order: [['datePosted', 'DESC']]

@@ -19,7 +19,7 @@ A comprehensive school management and community platform built with modern web t
 - **Role-Based Access Control**: Distinct features for Admins, Teachers, Alumni, and Students.
 - **Secure Authentication**: Robust login and registration system.
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Frontend
 - **React**: UI library for building interactive interfaces.

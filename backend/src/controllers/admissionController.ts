@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { ApplicantModel, SettingModel } from '../models/models';
 
-export const getApplicants = async (req: Request, res: Response) => {
+export const getApplicants = async (_req: Request, res: Response) => {
   try {
     const applicants = await ApplicantModel.findAll({
       order: [['appliedDate', 'DESC']]
@@ -22,7 +22,7 @@ export const apply = async (req: Request, res: Response) => {
   }
 };
 
-export const getThreshold = async (req: Request, res: Response) => {
+export const getThreshold = async (_req: Request, res: Response) => {
   try {
     const setting = await SettingModel.findByPk('admission_threshold');
     res.json({ threshold: setting ? Number(setting.value) : 2.5 });

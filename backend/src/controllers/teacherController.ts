@@ -1,7 +1,7 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { TeacherModel } from '../models/models';
 
-export const getAllTeachers = async (req: Request, res: Response) => {
+export const getAllTeachers = async (_req: Request, res: Response) => {
   try {
     const teachers = await TeacherModel.findAll();
     res.json(teachers);
