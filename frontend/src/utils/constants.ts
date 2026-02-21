@@ -40,23 +40,7 @@ export const TESTIMONIALS_DATA = [
     photoUrl: "/images/ifanus_mulatu.png",
     text: "I joined Ambo University Special Secondary School in September 2021 to continue my secondary education, having graduated from Ambo Primary School. All the school community in AUSSS is very supportive and friendly, so it makes it easier to adapt to the new environment and teaching system despite its rigorous curriculum. Learning with bright students and having smart teachers is the privilege I had in AUSSS. Diligence and commitment are not just advice I receive from my teachers; they are principles I see reflected in their work. The system used there helps me to cultivate hard work, time management, and teamwork skills, which assist me in various environments and situations I encounter. AUSSS is a place to learn, to grow, and to meet a positive and impactful community."
   },
-  {
-    id: 4,
-    name: "Dessalegn Getachew",
-    role: "ALUMNI",
-    initials: "DG",
-    color: "bg-purple-100 text-purple-700",
-    photoUrl: "/images/dessalegn_getachew.png",
-    text: "He will say something here..."
-  },
-  {
-    id: 6,
-    name: "Gutenber Abera",
-    role: "ALUMNI",
-    initials: "GA",
-    color: "bg-yellow-100 text-yellow-700",
-    text: "He will say something here SPECIALLY ABOUT STEM RELATED..."
-  }
+
 ];
 
 export const TEACHERS_DATA = [

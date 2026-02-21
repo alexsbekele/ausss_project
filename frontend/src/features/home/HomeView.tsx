@@ -6,11 +6,11 @@ import Testimonials from '@/features/home/Testimonials';
 import Teachers from '@/features/home/TeachersSection';
 import { PageView } from '@shared/types';
 import type { User, Language, Announcement } from '@shared/types';
-import { ArrowRight, Calendar, Trash2 } from 'lucide-react';
+
 import { translations } from '@/locales/translations';
-import SectionHeader from '@/components/ui/SectionHeader';
+
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
+
 
 interface HomeViewProps {
   lang: Language;
@@ -23,11 +23,11 @@ interface HomeViewProps {
 
 const HomeView: React.FC<HomeViewProps> = ({ 
   lang, 
-  latestAnnouncements, 
+  //latestAnnouncements, 
   currentUser, 
   onNavigate, 
   onLoginClick,
-  onDeleteAnnouncement 
+  //onDeleteAnnouncement 
 }) => {
   const t = translations.home;
   const common = translations.common;
