@@ -452,7 +452,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ forceTab, onViewProfile, isAdmi
                 </div>
                 {isAdmin && (
                   <Button 
-                    onClick={(e) => handleRemoveMember(e as any, member.id, member.type)}
+                    onClick={(e: React.MouseEvent) => handleRemoveMember(e, member.id, member.type)}
                     variant="danger"
                     icon={Trash2}
                     className="p-3 bg-red-50 text-red-600 rounded-xl opacity-0 group-hover:opacity-100 hover:bg-red-600 hover:text-white"
