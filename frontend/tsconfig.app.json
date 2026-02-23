@@ -29,5 +29,5 @@
       "@shared/types": ["../backend/types.ts"]
     }
   },
-  "include": ["src", "../backend", "../shared"]
+  "include": ["src"]
 }
